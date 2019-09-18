@@ -1,0 +1,348 @@
+body {
+    
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	font-size: .875rem;
+	color: rgba(0, 0, 0, .87);
+	line-height: 1.5;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.topnav {
+	position: fixed;
+	width: 100%;
+	overflow: hidden;
+	background-color: white;
+    height: 80px;
+    z-index: 1;
+}
+
+a {
+	color: black;
+	font-weight: 200;
+}
+
+.topnav a {
+	float: left;
+	display: inline-block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.img1 {
+	padding-left: 60px;
+	height: 35px;
+	width: 130px;
+	padding-bottom: 3px;
+}
+
+.nav2 {}
+
+.Blue {
+	background: url(http://angular-landing.angulardashboard.com/home-bg.1e271979b7c657dee1b0.jpg);
+	text-align: center;
+	/* line-height: 28px; */
+}
+
+.text1 {
+	text-align: center;
+	padding-top: 180px;
+	color: white;
+	font-size: 22px;
+}
+
+.text2 {
+	font-family: font-family: Roboto, "Helvetica Neue", sans-serif;
+	text-align: center;
+	color: white;
+	font-size: 48px;
+	font-weight: 900;
+	margin: 0px;
+}
+
+.text3 {
+	text-align: center;
+	font-weight: 400;
+	font-size: 14px;
+	margin-top: 20px;
+	color: white;
+}
+
+.text4 {
+	text-align: center;
+	font-weight: 400;
+	font-size: 14px;
+	margin-top: 0px;
+	color: white;
+}
+
+.button1 {
+	font-size: 20px;
+	font-weight: 400!important;
+	background-color: white;
+	height: 60px;
+	width: 200px;
+}
+
+.portfolio {
+	padding: 35px;
+}
+
+.hh {
+	font-size: 32px;
+	/* margin: 0 0 16px; */
+	padding-left: 70px;
+}
+
+
+
+.p1 {
+	padding-left: 70px;
+	font-size: 18px;
+	margin: 0;
+}
+
+.indiv1 {
+	/* flex: 20%; */
+    /* border: 1px solid black; */
+    margin: 20px;
+       width: 33.33%;
+    
+}
+
+
+.indiv2 {
+	/* flex:20%; */
+    /* border: 1px solid black; */
+    margin: 20px;
+    width: 33.33%;
+}
+
+.indiv3 {
+	/* flex:20%; */
+    /* border: 1px solid black; */
+    margin: 20px;
+    width:33.33%;
+}
+
+.text5 {
+	margin: 0%;
+	font-size: 40px;
+	font-weight: bold;
+	padding-left: 90px;
+}
+
+.text6 {
+	margin: 0px;
+	margin-top: 0px;
+	font-size: 18px;
+	padding-left: 90px;
+}
+
+.text7 {
+	font-size: 16px;
+	margin: 0px;
+	max-width: 36rem;
+}
+
+.div4 {
+	
+}
+
+.div5 {
+	flex-direction: row;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.para {
+	margin: 0 0 2rem;
+}
+
+.caraousel {
+	/* padding-left: 30px;
+	padding-right: 30px; */
+    /* position: relative; */
+    /* text-align: center; */
+    /* margin-left: 70px; */
+    display: block;
+    margin: auto;
+    width: 85%;
+	/* position: relative; */
+	display: flex;
+	/* flex-direction: row; */
+}
+.div10 span{
+    display: block;
+    margin-top: 10px;
+    
+ 
+}
+
+.box1 {
+	background-color:rgb(233, 233, 233);
+	padding: 80px 0px;
+}
+
+.div33 {
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.div10{
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    border-top: 2px solid black;    
+    border-bottom: 1px solid black;
+    
+}
+.div10 :hover{
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+/* .div10 {
+	width: 30%;
+}
+
+.div11 {
+	width: 30%;
+}
+
+.div12 {
+	width: 30%;
+} */
+
+.blue1 {
+    background: url(http://angular-landing.angulardashboard.com/home-bg.1e271979b7c657dee1b0.jpg);
+    height:300px;
+}
+.container{
+    padding:90px 70px;
+    
+}
+.hh1{
+    padding-left: 70px;
+    font-size: 32px;
+    color: white;
+}
+.container1{
+    padding: 70px 0px;
+    /* max-width: 1170px; */
+    margin: 0 auto;
+    width:fit-content;
+    /* margin:70px; */
+    
+    
+    /* style="place-content: center;align-items: center;flex-direction: row;box-sizing: border-box;display: flex;flex: 1 1 100%;max-width: 33.333%;" */
+}
+.inline{
+    flex-direction: row;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    /* padding: 0 15px; */
+    margin-left: 80px;
+}
+.div1{
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    margin-right: 20px; 
+    max-width: 66.6%;
+   
+}
+.p{
+    color: white;
+    font-size: 18px;
+    margin:0 0 16px;
+}
+.div2{
+    max-width: 33.33%;
+    /* display: flex; */
+    place-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin-left: 30px;
+}
+
+.button2 {
+	display: inherit;
+    padding:30px 50px;
+    background-color: yellow;
+    display: flex;  
+}
+
+.grey {
+	background-color: silver;
+}
+
+.blackbox {
+	background-color: black;
+	color: white;
+}
+
+.blackbox1 {
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.blackbox11 {
+	flex-direction: row;
+	box-sizing: border-box;
+	display: flex;
+	padding: 30px;
+}
+
+.inbox1 {
+	flex: 1 1 100%;
+	box-sizing: border-box;
+	max-width: 50%;
+}
+
+.inbox2 {
+	flex: 1 1 100%;
+	box-sizing: border-box;
+	max-width: 25%;
+}
+
+.inbox3 {
+	flex: 1 1 100%;
+	box-sizing: border-box;
+	max-width: 25%;
+}
+.icon{
+    margin-left: 60px;
+    font-size: 60px;
+}
+.box11{
+    background-color: white;
+
+}
+.portfolio1{
+    padding:35px;
+    background-color: white;
+}
+
+ @media and (max-width:360px){
+    body {
+    
+        margin: 0;
+        padding: 0;
+       
+        color: rgba(0, 0, 0, .87);
+       
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+} 
+@media and (max-width:768px){
+
+}
