@@ -40,7 +40,10 @@ namespace CommerceWebsite.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Items value)
         {
-            
+            Items objectItem = obj.Items.Single(i => i.ItemId == id);
+            objectItem.ItemName = value.ItemName;
+            objectItem.ItemPrice = value.ItemPrice;
+            obj.SaveChanges();
         }
 
         // DELETE api/values/5
