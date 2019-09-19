@@ -6,6 +6,6 @@ namespace Cyecom.Models
     public partial class Products
     {
         public int pid { get; set; }
-        public string Pname { get; set; }
+        public string pname { get; set; }
     }
 }

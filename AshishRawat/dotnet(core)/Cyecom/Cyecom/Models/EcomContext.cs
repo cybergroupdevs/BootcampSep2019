@@ -87,7 +87,7 @@ namespace Cyecom.Models
                     .HasColumnName("pid")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.Pname)
+                entity.Property(e => e.pname)
                     .HasColumnName("pname")
                     .HasColumnType("nchar(10)");
             });
