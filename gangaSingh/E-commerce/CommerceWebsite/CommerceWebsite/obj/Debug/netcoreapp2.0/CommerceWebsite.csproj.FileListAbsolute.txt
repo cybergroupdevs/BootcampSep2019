@@ -1,0 +1,11 @@
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\bin\Debug\netcoreapp2.0\CommerceWebsite.deps.json
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\bin\Debug\netcoreapp2.0\CommerceWebsite.runtimeconfig.json
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\bin\Debug\netcoreapp2.0\CommerceWebsite.runtimeconfig.dev.json
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\bin\Debug\netcoreapp2.0\CommerceWebsite.dll
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\bin\Debug\netcoreapp2.0\CommerceWebsite.pdb
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\obj\Debug\netcoreapp2.0\CommerceWebsite.csprojAssemblyReference.cache
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\obj\Debug\netcoreapp2.0\CommerceWebsite.csproj.CoreCompileInputs.cache
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\obj\Debug\netcoreapp2.0\CommerceWebsite.AssemblyInfoInputs.cache
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\obj\Debug\netcoreapp2.0\CommerceWebsite.AssemblyInfo.cs
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\obj\Debug\netcoreapp2.0\CommerceWebsite.dll
+E:\BootcampSep2019-master\BootcampSep2019\gangaSingh\E-commerce\CommerceWebsite\CommerceWebsite\obj\Debug\netcoreapp2.0\CommerceWebsite.pdb
