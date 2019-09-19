@@ -12,8 +12,6 @@ var con = document.getElementById(elementbyid).innerHTML;
         
           box=1;
           document.getElementById(elementbyid).innerHTML="X";
-          bt=document.getElementById(elementbyid).innerHTML;
-
           count++;
           m--;
           document.getElementById(elementbyid).setAttribute("data-points","-1");
@@ -61,8 +59,6 @@ $(document).ready(function(){
     div.animate({width: '300px', opacity: '0.6'}, "slow");
     btn.animate({height: '90px', opacity: '0.2'}, "slow");
     btn.animate({width: '90px', opacity: '0.6'}, "slow");
-    bt.css("color", "white").fadeOut(250).fadeIn(10);
-    
     });
 /*------------------------------------------------------------------------------------------------------*/
 
