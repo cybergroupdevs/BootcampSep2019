@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Apiproject.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Apiproject.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Produces("application/json")]
+    [Route("api/Brands")]
+    public class BrandsController : Controller
     {
-        // GET api/values
+        // GET: api/Brands
         ChandanContext c = new ChandanContext();
         [HttpGet]
         public IEnumerable<Brands> Get()
@@ -19,23 +21,23 @@ namespace Apiproject.Controllers
             return itm;
         }
 
-        // GET api/values/5
+        // GET: api/Brands/5
         [HttpGet("{id}")]
         public Brands Get(int id)
         {
             var x = c.Brands.Find(id);
             return x;
         }
-
-        // POST api/values
+        
+        // POST: api/Brands
         [HttpPost]
         public void Post([FromBody]Brands value)
         {
             c.Brands.Add(value);
             c.SaveChanges();
         }
-
-        // PUT api/values/5
+        
+        // PUT: api/Brands/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Brands value)
         {
@@ -46,12 +48,12 @@ namespace Apiproject.Controllers
 
             c.SaveChanges();
         }
-
-        // DELETE api/values/5
+        
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            c.Brands.Remove(c.Brands.FirstOrDefault(e=>e.Pid == id));
+            c.Brands.Remove(c.Brands.FirstOrDefault(e => e.Pid == id));
             c.SaveChanges();
         }
     }

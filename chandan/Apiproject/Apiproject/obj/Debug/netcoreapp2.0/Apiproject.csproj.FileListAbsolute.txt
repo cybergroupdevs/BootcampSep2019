@@ -8,4 +8,3 @@ C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiprojec
 C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.AssemblyInfo.cs
 C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.dll
 C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.pdb
-C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.csprojAssemblyReference.cache
