@@ -15,9 +15,9 @@ namespace CommerceWebsite.Controllers
         [HttpGet]
         public IEnumerable<Items> Get()
         {
-          //  return new String[2] { "value1", "value2" };
-           var view = obj.Items.ToList();
-           return view;
+            //  return new String[2] { "value1", "value2" };
+            var view = obj.Items.ToList();
+            return view;
         }
 
         // GET api/values/5
@@ -30,7 +30,7 @@ namespace CommerceWebsite.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]Items value)
+        public void Post([FromBody] Items value)
         {
             obj.Items.Add(value);
             obj.SaveChanges();
@@ -38,7 +38,7 @@ namespace CommerceWebsite.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Items value)
+        public void Put(int id, [FromBody] Items value)
         {
             Items objectItem = obj.Items.Single(i => i.ItemId == id);
             objectItem.ItemName = value.ItemName;
