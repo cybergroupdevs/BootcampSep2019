@@ -19,7 +19,7 @@ namespace CommerceWebsite.Controllers
             var view = obj.Items.ToList();
             return view;
         }
-
+        [Route "Brands"]
         // GET api/values/5
         [HttpGet("{id}")]
         public Items Get(int id)
