@@ -6,38 +6,27 @@ namespace Cyecom.Models
 {
     public partial class EcomContext : DbContext
     {
-        public EcomContext()
-        {
-
-        }
-        public EcomContext(DbContextOptions<EcomContext> options): base(options)
-        {
-
-        }
-        public virtual DbSet<Brands> Brands { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Brand> Brand { get; set; }
+        public virtual DbSet<Order2> Order2 { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Tax> Tax { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string cn = @"Server=CYG354;Database=Ecom;Trusted_Connection=True;";
-            optionsBuilder.UseSqlServer(cn);
-            base.OnConfiguring(optionsBuilder);
-          //  if (!optionsBuilder.IsConfigured)
-            //{
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-  //              optionsBuilder.UseSqlServer(@"Server=CYG354;Database=Ecom;Trusted_connection=true;");
-    //        }
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer(@"Server=CYG354;Database=Ecom;Trusted_Connection=True;");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Brands>(entity =>
+            modelBuilder.Entity<Brand>(entity =>
             {
                 entity.HasKey(e => e.Pid);
 
-                entity.ToTable("brands");
+                entity.ToTable("brand");
 
                 entity.Property(e => e.Pid)
                     .HasColumnName("pid")
@@ -50,22 +39,17 @@ namespace Cyecom.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.P)
-                    .WithOne(p => p.InverseP)
-                    .HasForeignKey<Brands>(d => d.Pid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__brands");
+                entity.HasOne(d => d.B)
+                    .WithMany(p => p.Brand)
+                    .HasForeignKey(d => d.Bid)
+                    .HasConstraintName("FK_brand_Order2");
             });
 
-            modelBuilder.Entity<Orders>(entity =>
+            modelBuilder.Entity<Order2>(entity =>
             {
                 entity.HasKey(e => e.Bid);
 
-                entity.ToTable("orders");
-
-                entity.Property(e => e.Bid)
-                    .HasColumnName("bid")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Bid).ValueGeneratedNever();
 
                 entity.Property(e => e.Pname)
                     .HasColumnName("pname")
@@ -79,15 +63,15 @@ namespace Cyecom.Models
 
             modelBuilder.Entity<Products>(entity =>
             {
-                entity.HasKey(e => e.pid);
+                entity.HasKey(e => e.Pid);
 
                 entity.ToTable("products");
 
-                entity.Property(e => e.pid)
+                entity.Property(e => e.Pid)
                     .HasColumnName("pid")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.pname)
+                entity.Property(e => e.Pname)
                     .HasColumnName("pname")
                     .HasColumnType("nchar(10)");
             });

@@ -3,50 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cyecom.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cyecom.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Produces("application/json")]
+    [Route("api/Brands")]
+    public class BrandsController : Controller
+
     {
         EcomContext dc = new EcomContext();
-
-        // GET api/values
+        // GET: api/Brands
         [HttpGet]
-        public IEnumerable<Products> Get()
+        public IEnumerable<Brand> Get()
         {
-            var a = dc.Products.ToList();
+            var a = dc.Brand.ToList();
             return a;
         }
 
-        // GET api/values/5
+        // GET: api/Brands/5
         [HttpGet("{id}")]
-        public Products Get(int id)
+        public Brand Get(int id)
         {
-            var b = dc.Products.Find(id);
+            var b = dc.Brand.Find(id);
             return b;
         }
 
-        // POST api/values
+        // POST: api/Brands
         [HttpPost]
-        public void Post([FromBody]Products value)
+        public void Post([FromBody]Brand value)
         {
-            dc.Products.Add(value);
+            dc.Brand.Add(value);
             dc.SaveChanges();
+        }
 
-        }
-        // PUT api/values/5
+        // PUT: api/Brands/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Products value)
+        public void Put(int id, int bid, [FromBody]Brand value)
         {
-            Products update = dc.Products.Single(m => m.Pid == id);
+            Brand update = dc.Brand.Single(m => m.Pid == id);
             update.Pid = value.Pid;
-            update.Pname = value.Pname;
-            update.Pname = value.Pname;
+            update.Bid = value.Bid;
+            update.Bname = value.Bname;
             dc.SaveChanges();
         }
-        // DELETE api/values/5
+
+
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

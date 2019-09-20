@@ -12,6 +12,8 @@ var con = document.getElementById(elementbyid).innerHTML;
         
           box=1;
           document.getElementById(elementbyid).innerHTML="X";
+          bt=document.getElementById(elementbyid).innerHTML;
+
           count++;
           m--;
           document.getElementById(elementbyid).setAttribute("data-points","-1");
