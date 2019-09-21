@@ -13649,11 +13649,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chandan\\Desktop\\Apiproject\\Apiproject\\Apiproject.csproj",
+      "projectUniqueName": "C:\\Users\\chandan\\Desktop\\BootcampSep2019\\chandan\\Apiproject\\Apiproject\\Apiproject.csproj",
       "projectName": "Apiproject",
-      "projectPath": "C:\\Users\\chandan\\Desktop\\Apiproject\\Apiproject\\Apiproject.csproj",
+      "projectPath": "C:\\Users\\chandan\\Desktop\\BootcampSep2019\\chandan\\Apiproject\\Apiproject\\Apiproject.csproj",
       "packagesPath": "C:\\Users\\chandan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chandan\\Desktop\\Apiproject\\Apiproject\\obj\\",
+      "outputPath": "C:\\Users\\chandan\\Desktop\\BootcampSep2019\\chandan\\Apiproject\\Apiproject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

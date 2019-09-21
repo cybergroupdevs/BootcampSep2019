@@ -8,3 +8,14 @@ C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiprojec
 C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.AssemblyInfo.cs
 C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.dll
 C:\Users\chandan\Desktop\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.pdb
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\bin\Debug\netcoreapp2.0\Apiproject.deps.json
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\bin\Debug\netcoreapp2.0\Apiproject.runtimeconfig.json
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\bin\Debug\netcoreapp2.0\Apiproject.runtimeconfig.dev.json
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\bin\Debug\netcoreapp2.0\Apiproject.dll
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\bin\Debug\netcoreapp2.0\Apiproject.pdb
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.csprojAssemblyReference.cache
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.csproj.CoreCompileInputs.cache
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.AssemblyInfoInputs.cache
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.AssemblyInfo.cs
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.dll
+C:\Users\chandan\Desktop\BootcampSep2019\chandan\Apiproject\Apiproject\obj\Debug\netcoreapp2.0\Apiproject.pdb
