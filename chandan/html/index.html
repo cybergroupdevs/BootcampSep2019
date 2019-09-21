@@ -1,52 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <title>Calculator</title>
     <link rel="stylesheet" href="help.css">
-    </head>
-    <body>
-        <center>
-    <table cellpadding="16" bgcolor"">
-    <thead>
-        <th colspan="4">
-                <input type="text" value="">
-        </th>
-    </thead>
-    
-    
-     <tr>
-         <td class="A">7</td>
-         <td class="A">8</td>
-         <td class="A">9</td>
-         <td class="B">*</td>
-     </tr>
-     <tr>
-            <td class="C" width="30">4</td>
-            <td class="C" width="30">5</td>
-            <td class="C" width="30">6</td>
-            <td class="B">-</td>
-        </tr>
-        <tr>
-                <td class="C">1</td>
-                <td class="C">2</td>
-                <td class="C">3</td>
-                <td class="B">+/-</td>
-            </tr>
-            
+    <script src="help1.js"></script>
+</head>
+
+<body id="gradient">
+    <div class="heading">
+        <b>CALCULATOR</b>
+    </div>
+    <center>
+
+        <table cellpadding="16">
+            <thead>
+                <th colspan="4">
+                    <form name="cal">
+                        <input type="text" name="screen">
+                </th>
+            </thead>
+
             <tr>
-                    <td class="C">/</td>
-                    <td class="C">0</td>
-                    <td class="C">+</td>
-                    <td class="B">C</td>
-                </tr>
-                <tr>
-                        <td class="C">%</td>
-                        <td class="C">.</td>
-                        <td class="C"><</td>
-                        <td class="B">=</td>
-                    </tr>
-    
-    </table>
-</center>
+                <td class="grey" onclick="cal.screen.value+='7'">7</td>
+                <td class="grey" onclick="cal.screen.value+='8'">8</td>
+                <td class="grey" onclick="cal.screen.value+='9'">9</td>
+                <td class="yellow" onclick="cal.screen.value+='*'">*</td>
+            </tr>
+            <tr>
+                <td class="black" width="30" onclick="cal.screen.value+='4'">4</td>
+                <td class="black" width="30" onclick="cal.screen.value+='5'">5</td>
+                <td class="black" width="30" onclick="cal.screen.value+='6'">6</td>
+                <td class="yellow" onclick="cal.screen.value+='-'">-</td>
+            </tr>
+            <tr>
+                <td class="black" id="one" onclick="cal.screen.value+='1'">1</td>
+                <td class="black" id="two" onclick="cal.screen.value+='2'">2</td>
+                <td class="black" id="three" onclick="cal.screen.value+='3'">3</td>
+                <td class="yellow" id="p/m" onclick="square()">X<sup>2</sup></td>
+            </tr>
+
+            <tr>
+                <td class="black" id="divide" onclick="cal.screen.value+='/'">/</td>
+                <td class="black" id="zero" onclick="cal.screen.value+='0'">0</td>
+                <td class="black" id="add" onclick="cal.screen.value+='+'">+</td>
+                <td class="yellow" id="clear" onclick="back()">C</td>
+            </tr>
+            <tr>
+                <td class="black" id="percentage" onclick="perc()">%</td>
+                <td class="black" id="decimal" onclick="cal.screen.value+='.'">.</td>
+                <td class="black" id="clearall" onclick="cal.screen.value=''">CR</td>
+                <td class="yellow" id="equal" onclick="cal.screen.value=eval(cal.screen.value)">=</td>
+            </tr>
+            </form>
+        </table>
+    </center>
 </body>
-    </html>
+
+</html>
