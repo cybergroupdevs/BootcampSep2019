@@ -1,0 +1,11 @@
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\bin\Debug\netcoreapp2.0\employabilityTest.deps.json
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\bin\Debug\netcoreapp2.0\employabilityTest.runtimeconfig.json
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\bin\Debug\netcoreapp2.0\employabilityTest.runtimeconfig.dev.json
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\bin\Debug\netcoreapp2.0\employabilityTest.dll
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\bin\Debug\netcoreapp2.0\employabilityTest.pdb
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\obj\Debug\netcoreapp2.0\employabilityTest.csproj.CoreCompileInputs.cache
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\obj\Debug\netcoreapp2.0\employabilityTest.AssemblyInfoInputs.cache
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\obj\Debug\netcoreapp2.0\employabilityTest.AssemblyInfo.cs
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\obj\Debug\netcoreapp2.0\employabilityTest.dll
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\obj\Debug\netcoreapp2.0\employabilityTest.pdb
+C:\Users\ashish.rawat\source\repos\employabilityTest\employabilityTest\obj\Debug\netcoreapp2.0\employabilityTest.csprojAssemblyReference.cache
