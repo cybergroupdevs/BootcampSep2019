@@ -13080,11 +13080,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chandan\\Desktop\\testportal\\testportal\\testportal.csproj",
+      "projectUniqueName": "C:\\Users\\chandan\\Desktop\\BootcampSep2019\\chandan\\Project\\testportal\\testportal\\testportal.csproj",
       "projectName": "testportal",
-      "projectPath": "C:\\Users\\chandan\\Desktop\\testportal\\testportal\\testportal.csproj",
+      "projectPath": "C:\\Users\\chandan\\Desktop\\BootcampSep2019\\chandan\\Project\\testportal\\testportal\\testportal.csproj",
       "packagesPath": "C:\\Users\\chandan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chandan\\Desktop\\testportal\\testportal\\obj\\",
+      "outputPath": "C:\\Users\\chandan\\Desktop\\BootcampSep2019\\chandan\\Project\\testportal\\testportal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

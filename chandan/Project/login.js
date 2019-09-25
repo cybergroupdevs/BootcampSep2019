@@ -3,7 +3,7 @@ $(document).ready(function(){
         e.preventDefault();
         var nam=document.getElementById("uname").value;
         var password=document.getElementById("pwd").value;
-        console.log(unam);
+        console.log(nam);
         console.log(password);
       $.ajax("http://localhost:61549/api/values",{
         type:"POST",
@@ -12,7 +12,7 @@ $(document).ready(function(){
         
             data:JSON.stringify(
                 {
-                  "username":unam ,
+                  "username":nam ,
                   "password":password,
                 }
             ),
