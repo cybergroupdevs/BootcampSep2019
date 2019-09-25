@@ -22,8 +22,8 @@ $(document).ready( function(){
 
             },
             error: function(msg){
-               
-                alert(msg);
+                console.log(msg.responseText);
+                alert(msg.responseText);
             }
         });
     });

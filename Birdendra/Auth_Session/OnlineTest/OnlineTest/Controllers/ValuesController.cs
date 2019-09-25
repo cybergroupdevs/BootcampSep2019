@@ -14,10 +14,10 @@ namespace OnlineTest.Controllers
         OnlineTesContext obj = new OnlineTesContext();
         // GET api/values
         [HttpGet]
-        //public IEnumerable<SignUp> Get()
-        //{
-        //    ;
-        //}
+        public IEnumerable<SignUp> Get()
+        {
+            return obj.SignUp.ToList();
+        }
 
         // GET api/values/5
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace OnlineTest.Controllers
 
                 if (val.Count() > 0 )
                 {
-                    if (val.Exists(pwd => string.Compare(pwd.Pwd, value.Pwd) > 0))
+                    if (val.Exists(pwd => string.Compare(pwd.Pwd, value.Pwd) == 0))
                         return Ok(val);
                     else
                         return BadRequest("Wrong password");
