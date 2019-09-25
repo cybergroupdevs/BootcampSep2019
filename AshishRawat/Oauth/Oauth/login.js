@@ -5,14 +5,14 @@ $(document).ready(function () {
         var password = document.getElementById("exampleInputPassword1").value;
 
         console.log(username + ' ' + password);
-        $.ajax("http://localhost:56355/api/values", {
+        $.ajax("http://localhost:56355/api/login", {
             type: "POST",
             dataType: "json",
             contentType: "application/json",
             // crosDomain:"true",
             data: JSON.stringify(
                 {
-                   
+
                     "username": username,
                     "password": password
                 }

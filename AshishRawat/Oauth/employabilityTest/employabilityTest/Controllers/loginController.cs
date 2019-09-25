@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using employabilityTest.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace employabilityTest.Controllers
     [Route("api/login")]
     public class loginController : Controller
     {
+        EmployeetestContext obj = new EmployeetestContext();
         // GET: api/login
         [HttpGet]
         public IEnumerable<string> Get()
@@ -27,8 +29,14 @@ namespace employabilityTest.Controllers
         
         // POST: api/login
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody] Signup value)
         {
+            var row = obj.Signup.SingleOrDefault(r => r.Username == value.Username);
+            if(row.Username==value.Username && row.Password==value.Password)
+            {
+                return Ok("user in database");
+            }
+            return Unauthorized();
         }
         
         // PUT: api/login/5
