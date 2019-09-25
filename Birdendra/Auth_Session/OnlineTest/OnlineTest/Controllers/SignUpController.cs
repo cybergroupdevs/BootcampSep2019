@@ -17,7 +17,13 @@ namespace OnlineTest.Controllers
         [HttpGet]
         public IEnumerable<SignUp> Get()
         {
-            return obj.SignUp.ToList();
+            var list = obj.SignUp.ToList();
+            if (list.Count() > 0)
+            {
+                return list;
+            }
+            else
+                return null;
         }
 
         // GET: api/SignUp/5
@@ -33,9 +39,17 @@ namespace OnlineTest.Controllers
         {
             try
             {
-                obj.SignUp.Add(value);
-                obj.SaveChanges();
-                return Ok(value);
+                var list = obj.SignUp.SingleOrDefault(u => u.UserId == value.UserId);
+                if (list == null )
+                {
+                    obj.SignUp.Add(value);
+                    obj.SaveChanges();
+                    return Ok(value);
+                }
+                else
+                {
+                    return BadRequest("user already exist");
+                }
             }
             catch( Exception e)
             {

@@ -33,11 +33,12 @@ namespace OnlineTest.Controllers
         {
             try
             {
-                var val = obj.SignUp.Where(em => em.UserId == value.UserId ).ToList();
+                //var val = obj.SignUp.Where(em => em.UserId == value.UserId ).ToList();
+                var val = obj.SignUp.SingleOrDefault(em => em.UserId == value.UserId);
 
-                if (val.Count() > 0 )
+                if (val != null )
                 {
-                    if (val.Exists(pwd => string.Compare(pwd.Pwd, value.Pwd) == 0))
+                    if ( val.Pwd == value.Pwd )
                         return Ok(val);
                     else
                         return BadRequest("Wrong password");
@@ -60,9 +61,20 @@ namespace OnlineTest.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{user_id}")]
+        public void Delete(string user_id)
         {
+            try
+            {
+                obj.SignUp.Remove(obj.SignUp.FirstOrDefault(x => x.UserId == user_id));
+                obj.SaveChanges();
+            }
+            catch( Exception e)
+            {
+                //Console.WriteLine(e);
+                //Console.ReadKey();
+            }
+
         }
     }
 }
