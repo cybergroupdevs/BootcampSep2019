@@ -19,11 +19,11 @@ namespace signup.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{username}")]
+        public Userdetails Get(string username)
         {
-
-            return "value";
+            Userdetails row = obj.Userdetails.SingleOrDefault(r => r.Username == username);
+            return row;
         }
 
         // POST api/values
