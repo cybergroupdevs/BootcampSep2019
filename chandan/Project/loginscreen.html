@@ -2,8 +2,10 @@
 <title>Online test portal</title>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="login.js"></script>
 </head>
 <style>
   .jumbotron {
@@ -22,14 +24,14 @@
         <form>
             <div class="form-group">
               <label>Username</label>
-              <input type="email" class="form-control" placeholder="Username" >
+              <input type="email" class="form-control" placeholder="Username" id="uname" >
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" class="form-control" placeholder="Password" >
+              <input type="password" class="form-control" placeholder="Password" id="pwd">
             </div>
             <div style="text-align: center">
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" id="btn1"class="btn btn-success">Login</button>
             <p style="padding-top:10px;">OR</p>
             <button type="submit" class="btn btn-danger"><a href="signupscreen.html" style="color: white;text-decoration: none;">Create Account</a> </button>
              </div>
