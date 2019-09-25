@@ -5,7 +5,7 @@ $(document).ready(function(){
         var password=document.getElementById("pwd").value;
         console.log(nam);
         console.log(password);
-      $.ajax("http://localhost:61549/api/values",{
+      $.ajax("http://localhost:61549/api/login",{
         type:"POST",
         dataType:"json",
         contentType:"application/json",
@@ -20,9 +20,10 @@ $(document).ready(function(){
                 console.log("hello",data,status);
                 window.location.replace("mainscreen.html");
             },
-            error:function()
+            error:function(msg)
             {
-                alert("Something went wrong");
+                console.log(msg);
+                alert(msg.responseText);
             }
             
           });

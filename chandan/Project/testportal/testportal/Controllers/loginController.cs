@@ -26,17 +26,34 @@ namespace testportal.Controllers
         {
             return "value";
         }
-        
+
         // POST: api/login
         [HttpPost]
         public IActionResult Post([FromBody]Table1 value)
         {
-            var x = obj.Table1.SingleOrDefault(xx => xx.Username == value.Username);
-            if(x.Username==value.Username&&x.Password==value.Password)
+
+            try
             {
-                return Ok("User is allow to go further");
+                var x = obj.Table1.SingleOrDefault(xx => xx.Username == value.Username);
+             
+                if (x != null )
+                {
+                    if (x.Password == value.Password)
+                        return Ok(value);
+                    else
+                        return BadRequest("Wrong password");
+                    
+                }
+                else
+                {
+                    return BadRequest("User doesnot exist");
+                }
             }
-            return Unauthorized();
+            catch( Exception e)
+            {
+                return BadRequest(e);
+            }
+              
         }
         
         // PUT: api/login/5
