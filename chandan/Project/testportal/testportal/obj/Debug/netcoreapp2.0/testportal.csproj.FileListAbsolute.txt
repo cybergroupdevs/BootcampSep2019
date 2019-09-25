@@ -1,0 +1,11 @@
+C:\Users\chandan\Desktop\testportal\testportal\bin\Debug\netcoreapp2.0\testportal.deps.json
+C:\Users\chandan\Desktop\testportal\testportal\bin\Debug\netcoreapp2.0\testportal.runtimeconfig.json
+C:\Users\chandan\Desktop\testportal\testportal\bin\Debug\netcoreapp2.0\testportal.runtimeconfig.dev.json
+C:\Users\chandan\Desktop\testportal\testportal\bin\Debug\netcoreapp2.0\testportal.dll
+C:\Users\chandan\Desktop\testportal\testportal\bin\Debug\netcoreapp2.0\testportal.pdb
+C:\Users\chandan\Desktop\testportal\testportal\obj\Debug\netcoreapp2.0\testportal.csprojAssemblyReference.cache
+C:\Users\chandan\Desktop\testportal\testportal\obj\Debug\netcoreapp2.0\testportal.csproj.CoreCompileInputs.cache
+C:\Users\chandan\Desktop\testportal\testportal\obj\Debug\netcoreapp2.0\testportal.AssemblyInfoInputs.cache
+C:\Users\chandan\Desktop\testportal\testportal\obj\Debug\netcoreapp2.0\testportal.AssemblyInfo.cs
+C:\Users\chandan\Desktop\testportal\testportal\obj\Debug\netcoreapp2.0\testportal.dll
+C:\Users\chandan\Desktop\testportal\testportal\obj\Debug\netcoreapp2.0\testportal.pdb
