@@ -44,9 +44,10 @@ namespace OnlineTest.Controllers
                 string pwd = pwdValue.FirstOrDefault();
 
                 SignUp user = obj.SignUp.Find(email);
-                if ( user.UserId.Equals(email) )
+                if ( user.UserId.Equals(email) == true )
                 {
-                    if (user.Pwd.Equals(pwd) )
+                    bool validPassword = BCrypt.Net.BCrypt.Verify( pwd , user.Pwd);
+                    if ( validPassword )
                         return Ok(true);
                     else
                         return BadRequest("Wrong password");

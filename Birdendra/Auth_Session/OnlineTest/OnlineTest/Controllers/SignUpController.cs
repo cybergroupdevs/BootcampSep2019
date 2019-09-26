@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using OnlineTest.Models;
 
 namespace OnlineTest.Controllers
@@ -39,17 +40,29 @@ namespace OnlineTest.Controllers
         {
             try
             {
-                var list = obj.SignUp.SingleOrDefault(u => u.UserId == value.UserId);
-                if (list == null )
+                
+                string hashPwd = BCrypt.Net.BCrypt.HashPassword(value.Pwd);
+                SignUp user = new SignUp();
+                user.UserId = value.UserId;
+                user.Pwd = hashPwd;
+                user.Name = value.Name;
+                user.ColName = value.ColName;
+                user.ColId = value.ColId;
+
+                var check_obj = obj.SignUp.Find(value.UserId);
+
+                if (check_obj == null)
                 {
-                    obj.SignUp.Add(value);
+                    obj.SignUp.Add(user);
                     obj.SaveChanges();
-                    return Ok(value);
+                    return Ok(true);
                 }
                 else
                 {
                     return BadRequest("user already exist");
                 }
+                
+
             }
             catch( Exception e)
             {
