@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Student-details\\Student-Menu\\Student-Menu\\Student-Menu.csproj",
+      "projectUniqueName": "E:\\BootcampSep2019-master\\BootcampSep2019\\gangaSingh\\Student-details\\Student-Menu\\Student-Menu\\Student-Menu.csproj",
       "projectName": "Student-Menu",
-      "projectPath": "E:\\Student-details\\Student-Menu\\Student-Menu\\Student-Menu.csproj",
+      "projectPath": "E:\\BootcampSep2019-master\\BootcampSep2019\\gangaSingh\\Student-details\\Student-Menu\\Student-Menu\\Student-Menu.csproj",
       "packagesPath": "C:\\Users\\ganga.singh\\.nuget\\packages\\",
-      "outputPath": "E:\\Student-details\\Student-Menu\\Student-Menu\\obj\\",
+      "outputPath": "E:\\BootcampSep2019-master\\BootcampSep2019\\gangaSingh\\Student-details\\Student-Menu\\Student-Menu\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
