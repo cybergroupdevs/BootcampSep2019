@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using employabilityTest.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 
 namespace employabilityTest.Controllers
 {
@@ -26,18 +27,46 @@ namespace employabilityTest.Controllers
         {
             return "value";
         }
-        
+
         // POST: api/login
         [HttpPost]
-        public IActionResult Post([FromBody] Signup value)
+        public IActionResult Post([FromBody] dynamic value)
         {
-            var row = obj.Signup.SingleOrDefault(r => r.Username == value.Username);
-            if(row.Username==value.Username && row.Password==value.Password)
+            try
             {
-                return Ok("user in database");
+                StringValues emailValue;
+                StringValues passwordValue;
+                Request.Headers.TryGetValue("username", out emailValue);
+                Request.Headers.TryGetValue("password", out passwordValue);
+                String username = emailValue.FirstOrDefault();
+                String password = passwordValue.FirstOrDefault();
+                Signup loggedinUser = obj.Signup.Find(username);
+                try
+                {
+                    if (loggedinUser.Password.Equals(password))
+                    {
+                        return Ok(true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return Unauthorized();
+                }
             }
-            return Unauthorized();
+            catch
+            {
+
+            }
+            return BadRequest();
         }
+        //var row = obj.Signup.SingleOrDefault(r => r.Username == value.Username);
+        //if(row.Username==value.Username && row.Password==value.Password)
+        //{
+        //    return Ok("user in database");
+        //}
+        //return Unauthorized();
+  
+
         
         // PUT: api/login/5
         [HttpPut("{id}")]

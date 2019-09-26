@@ -29,7 +29,7 @@ $(document).ready(function () {
                 window.location.replace("login.html");
             },
             error: function () {
-                alert("Something went wrong")
+                alert("Something went Wrong");
             }
         });
 

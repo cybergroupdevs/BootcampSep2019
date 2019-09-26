@@ -10,6 +10,10 @@ $(document).ready(function () {
             dataType: "json",
             contentType: "application/json",
             // crosDomain:"true",
+            headers:{
+                "username":username,
+                "password": password
+            },
             data: JSON.stringify(
                 {
 
@@ -17,12 +21,12 @@ $(document).ready(function () {
                     "password": password
                 }
             ),
-            success: function (data, status) {
-                console.log("hello", data, status);
+            success: function (headers, status) {
+                console.log("hello", headers, status);
                 window.location.replace("home.html");
             },
             error: function () {
-                alert("Something went wrong")
+                alert("Username or Password did not match");
             }
         });
 
