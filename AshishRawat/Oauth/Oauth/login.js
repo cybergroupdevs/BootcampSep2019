@@ -11,6 +11,7 @@ $(document).ready(function () {
             contentType: "application/json",
             // crosDomain:"true",
             headers:{
+                
                 "username":username,
                 "password": password
             },
@@ -23,6 +24,7 @@ $(document).ready(function () {
             ),
             success: function (headers, status) {
                 console.log("hello", headers, status);
+                localStorage.setItem("token",headers);
                 window.location.replace("home.html");
             },
             error: function () {

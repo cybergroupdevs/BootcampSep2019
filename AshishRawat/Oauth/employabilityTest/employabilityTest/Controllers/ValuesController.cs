@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using employabilityTest.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace employabilityTest.Controllers
@@ -32,14 +33,14 @@ namespace employabilityTest.Controllers
         {
             try
             {
-               var hashedPassword = BCrypt.Net.BCrypt.HashPassword(value.Password);
+                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(value.Password);
                 value.Password = hashedPassword;
                 et.Signup.Add(value);
 
                 et.SaveChanges();
                 return Ok(value);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex);
             }
@@ -56,5 +57,8 @@ namespace employabilityTest.Controllers
         public void Delete(int id)
         {
         }
+
+
+
     }
 }

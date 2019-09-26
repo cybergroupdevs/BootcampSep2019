@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using employabilityTest.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
+using Microsoft.IdentityModel.Tokens;
 
 namespace employabilityTest.Controllers
 {
@@ -14,6 +20,12 @@ namespace employabilityTest.Controllers
     public class loginController : Controller
     {
         EmployeetestContext obj = new EmployeetestContext();
+        private IConfiguration _config;
+
+        public loginController(IConfiguration config)
+        {
+            _config = config;
+        }
         // GET: api/login
         [HttpGet]
         public IEnumerable<string> Get()
@@ -48,7 +60,9 @@ namespace employabilityTest.Controllers
                 {
                     if (validPassword == true)
                     {
-                        return Ok(true);
+                        
+                        String tokenString = GenerateJSONWebToken(loggedinUser);
+                        return Ok(new { token = tokenString });
                     }
                 }
                 catch (Exception ex)
@@ -84,5 +98,47 @@ namespace employabilityTest.Controllers
         public void Delete(int id)
         {
         }
+        [Route("sample")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult sampleAuthRoute()
+        {
+            try
+            {
+                var currentUser = HttpContext.User;
+                //TODO: Make claims work, currently not working
+                //if (currentUser.HasClaim(c => c.Type == "Email"))
+                //{
+                //    String email = currentUser.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+                //}
+                return Ok(new { });
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return BadRequest();
+        }
+
+        private string GenerateJSONWebToken(Signup userInfo)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[] {
+        new Claim("username", userInfo.Username),
+        new Claim("collegename", userInfo.Collegename),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
+            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
+              _config["Jwt:Issuer"],
+              claims,
+              expires: DateTime.Now.AddMinutes(120),
+              signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
     }
 }
+
