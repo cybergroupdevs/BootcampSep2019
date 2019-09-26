@@ -9,14 +9,18 @@ $(document).ready(function(){
                 $.ajax("http://localhost:61226/api/login",{
            
                     type:"POST",
+                    headers:{
+                        "Email" : username,
+                        "Password": pwd
+                    },
                     dataType:"JSON",
                     contentType:"application/json;charset=utf-8",
-                    data: JSON.stringify( 
-                        {
-                            "Email" : username,
-                            "Password": pwd,
-                        }
-                    ),
+                    // data: JSON.stringify( 
+                    //     {
+                    //         "Email" : username,
+                    //         "Password": pwd,
+                    //     }
+                    // ),
                     success:function(data,status){
                        console.log("successful",data,status);
                         window.location.replace("finalScreen.html");

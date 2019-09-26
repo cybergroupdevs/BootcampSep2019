@@ -7,13 +7,14 @@ $(document).ready(function(){
             var cnf_pwd = $("#pwd1").val();
             var collName = $("#collegeName").val();
             var rollNo = $("#CollegeId").val();
+            console.log(Uname + " " + pass);
           var data =  {
                 "Name" :name,
                 "Email" :Uname,
                 "Password":pass,
-                "Confirm_Password":cnf_pwd,
-                "College_Name":collName,
-                "College_Id":rollNo,
+                "ConfirmPassword":cnf_pwd,
+                "Collegename":collName,
+                "CollegeId":rollNo,
                 };
         $.ajax({
            
@@ -25,9 +26,10 @@ $(document).ready(function(){
             data: JSON.stringify(data),
             success:function(_data,success){
               window.location.replace("login.html");
-            }
-           error:function(){
-                window.alert("Username not found")
+            },
+
+           error:function(msg){
+                window.alert( msg.responseText);
             }
         });
     });
