@@ -6,11 +6,19 @@ $(document).ready(function(){
       var pwd=document.getElementById("password").value;
       var cname=document.getElementById("collegename").value;
       var cid=parseInt (document.getElementById("collegeid").value);
-      console.log(nam);
-      console.log(em);
-      console.log(pwd);
-      console.log(cname);
-      console.log(cid);
+      $(".error").remove();
+      if(nam.length<1)
+      {
+        $('#name').after('<span class="error">Field Required</span>');
+      }
+      if(em.length<1)
+      {
+        $('#email').after('<span class="error">Field Required</span>');
+      }
+      if(pwd.length<5)
+      {
+        $('#password').after('<span class="error">Field Required</span>');
+      }
     $.ajax("http://localhost:61549/api/values",{
       type:"POST",
       dataType:"json",
