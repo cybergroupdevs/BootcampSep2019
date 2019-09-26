@@ -30,7 +30,7 @@ namespace signup.Controllers
             try
             {
                 obj.Userdetails.Add(userdata);
-                obj.Studentdetails.Add(userdata.Username);
+                //obj.Studentdetails.Add(userdata.Username);
                 obj.SaveChanges();
                 return Ok("User Added");
             }
