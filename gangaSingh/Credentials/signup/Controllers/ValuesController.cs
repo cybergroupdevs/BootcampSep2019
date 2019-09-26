@@ -19,22 +19,26 @@ namespace signup.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{username}")]
-        public Userdetails Get(string username)
-        {
-            Userdetails row = obj.Userdetails.SingleOrDefault(r => r.Username == username);
-            return row;
-        }
-
-        // POST api/values
+        
+        //POST api/values
         [HttpPost]
-       // [Route("signup")]
-        public string post([FromBody]Userdetails userdata)
-        {  
-            obj.Userdetails.Add(userdata);
-            obj.SaveChanges();
-            return "success";
-        }
+       [Route("signup")]
+       public IActionResult post([FromBody]Userdetails userdata)
+        {
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(userdata.Password);
+            userdata.Password = hashedPassword;
+            try
+            {
+                obj.Userdetails.Add(userdata);
+                obj.Studentdetails.Add(userdata.Username);
+                obj.SaveChanges();
+                return Ok("User Added");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("User Not added");
+            }
+       }
 
         // PUT api/values/5
         [HttpPut("{id}")]
