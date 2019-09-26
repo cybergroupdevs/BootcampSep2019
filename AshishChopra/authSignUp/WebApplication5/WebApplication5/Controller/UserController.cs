@@ -29,11 +29,21 @@ namespace WebApplication5.Controllers
         
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody]SignUp value)
+        public IActionResult Post([FromBody]SignUp value)
         {
-            obj1.SignUp.Add(value);
+            try
+            {
+                obj1.SignUp.Add(value);
+                obj1.SaveChanges();
+                return Ok(value);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
+            //obj1.SignUp.Add(value);
 
-            obj1.SaveChanges();
+            //obj1.SaveChanges();
         }
         
         // PUT: api/User/5

@@ -13,7 +13,7 @@ $(document).ready(function(){
                 "Password":pass,
                 "Confirm_Password":cnf_pwd,
                 "College_Name":collName,
-                "rollNo":rollNo
+                "College_Id":rollNo,
                 };
         $.ajax({
            
@@ -23,18 +23,12 @@ $(document).ready(function(){
             
             contentType:"application/json;charset=utf-8",
             data: JSON.stringify(data),
-            success:function(data,success){
-                console.log("successful");
-            },
-           error:function(){
-                console.log("Username not found");
+            success:function(_data,success){
+              window.location.replace("login.html");
             }
-
-
-
-
-        })
-
-
-    })
-})
+           error:function(){
+                window.alert("Username not found")
+            }
+        });
+    });
+});
