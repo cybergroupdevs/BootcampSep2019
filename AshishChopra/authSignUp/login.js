@@ -23,6 +23,7 @@ $(document).ready(function(){
                     // ),
                     success:function(data,status){
                        console.log("successful",data,status);
+                       localStorage.setItem('token',headers.token)
                         window.location.replace("finalScreen.html");
                     },
                    error:function(receive){
