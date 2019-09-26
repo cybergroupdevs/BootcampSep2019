@@ -27,6 +27,12 @@ namespace signup.Controllers
         {
             return View();
         }
+        [Authorize]
+        [HttpGet]
+        public string test()
+        {
+            return "test";
+        }
         [HttpPost]
         [Route("signin")]
         
@@ -72,13 +78,14 @@ namespace signup.Controllers
         [Route("sample")]
         [HttpGet]
         [Authorize]
-        public IActionResult sampleAuthRoute()
+        public IActionResult sampleAuthRoute([FromHeader]Userdetails user)
         {
+
             try
             {
                 var currentUser = HttpContext.User;
                 
-                return Ok(new { message = "Sample page working" });
+                return Ok();
 
             }
             catch (Exception ex)
@@ -101,7 +108,7 @@ namespace signup.Controllers
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
               claims,
-              expires: DateTime.Now.AddMinutes(120),
+              expires: DateTime.Now.AddMinutes(1),
               signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
