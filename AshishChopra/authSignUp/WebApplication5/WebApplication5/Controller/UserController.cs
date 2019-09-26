@@ -13,6 +13,8 @@ namespace WebApplication5.Controllers
     public class UserController : Controller
     {
         Test_platformContext obj1 = new Test_platformContext();
+
+
         // GET: api/User
         [HttpGet]
         public IEnumerable<SignUp> Get()
@@ -33,13 +35,15 @@ namespace WebApplication5.Controllers
         {
             try
             {
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(value.Password);
+                value.Password = hashedPassword;
                 obj1.SignUp.Add(value);
                 obj1.SaveChanges();
-                return Ok(value);
+                return Ok(true);
             }
-            catch(Exception e)
+            catch(Exception excep)
             {
-                return BadRequest(e);
+                return BadRequest(excep);
             }
             //obj1.SignUp.Add(value);
 

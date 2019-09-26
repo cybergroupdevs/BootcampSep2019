@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using WebApplication5.Models;
+using BCrypt.Net;
 
 namespace WebApplication5.Controllers
 {
@@ -40,25 +41,25 @@ namespace WebApplication5.Controllers
                 Request.Headers.TryGetValue("Password", out passwordValue);
                 String email = emailValue.FirstOrDefault();
                 String password = passwordValue.FirstOrDefault();
-
                 SignUp loggedinUser = obj.SignUp.Find(email);
-                try
-                {
-                    if (loggedinUser.Password.Equals(password))
+                bool validPassword = BCrypt.Net.BCrypt.Verify(password,loggedinUser.Password);
+
+               
+               if (validPassword)
                     {
                         return Ok(true);
                     }
-                }
-                catch (Exception ex)
+                else
                 {
-                    return Unauthorized();
+                    return BadRequest("wrong password");
                 }
+                            
             }
             catch (Exception ex)
             {
-
-            }
-            return BadRequest();
+                return BadRequest();
+    }
+            
         }
 
         //try
