@@ -4,9 +4,10 @@ $(document).ready(function(){
       var nam=document.getElementById("name").value;
       var em=document.getElementById("email").value;
       var pwd=document.getElementById("password").value;
+      var pwd1=document.getElementById("password1").value;
       var cname=document.getElementById("collegename").value;
       var cid=parseInt (document.getElementById("collegeid").value);
-      $(".error").remove();
+     /* $(".error").remove();
       if(nam.length<1)
       {
         $('#name').after('<span class="error">Field Required</span>');
@@ -17,8 +18,18 @@ $(document).ready(function(){
       }
       if(pwd.length<5)
       {
-        $('#password').after('<span class="error">Field Required</span>');
+        $('#password').after('<span class="error">Password must have 5 character long</span>');
       }
+      if(pwd1!=pwd)
+      {
+        $('#password1').after('<span class="error">Please enter same password</span>');
+      }
+      if(cname.length<1)
+      {
+        $('#collegename').after('<span class="error">Field Required</span>');
+      }
+    */
+       
     $.ajax("http://localhost:61549/api/values",{
       type:"POST",
       dataType:"json",

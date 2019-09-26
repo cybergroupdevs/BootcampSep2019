@@ -9,15 +9,19 @@ $(document).ready(function(){
         type:"POST",
         dataType:"json",
         contentType:"application/json",
-        
+           headers:
+           {
+            "username":nam,
+            "password":password,
+           },
             data:JSON.stringify(
                 {
-                  "username":nam ,
+                  "username":nam,
                   "password":password,
                 }
             ),
-            success:function(data,status){ 
-                console.log("hello",data,status);
+            success:function(headers,status){ 
+                console.log("hello",headers,status);
                 window.location.replace("mainscreen.html");
             },
             error:function(msg)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using testportal.Models;
 
 namespace testportal.Controllers
@@ -17,7 +18,7 @@ namespace testportal.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value11", "value22" };
         }
 
         // GET: api/login/5
@@ -29,32 +30,31 @@ namespace testportal.Controllers
 
         // POST: api/login
         [HttpPost]
-        public IActionResult Post([FromBody]Table1 value)
+        public IActionResult Post([FromBody]dynamic value)
         {
 
+            StringValues emailValue;
+            StringValues passwordValue;
+            Request.Headers.TryGetValue("username", out emailValue);
+            Request.Headers.TryGetValue("password", out passwordValue);
+            String username = emailValue.FirstOrDefault();
+            String password = passwordValue.FirstOrDefault();
+
+            Table1 loggedinUser = obj.Table1.Find(username);
             try
             {
-                var x = obj.Table1.SingleOrDefault(xx => xx.Username == value.Username);
-             
-                if (x != null )
+                if (loggedinUser.Password.Equals(password))
                 {
-                    if (x.Password == value.Password)
-                        return Ok(value);
-                    else
-                        return BadRequest("Wrong password");
-                    
-                }
-                else
-                {
-                    return BadRequest("User doesnot exist");
+                    return Ok(true);
                 }
             }
-            catch( Exception e)
+            catch (Exception ex)
             {
-                return BadRequest(e);
+                return Unauthorized();
             }
-              
-        }
+            return BadRequest();
+        
+    }
         
         // PUT: api/login/5
         [HttpPut("{id}")]

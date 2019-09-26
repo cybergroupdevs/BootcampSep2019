@@ -28,9 +28,9 @@ namespace testportal.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Table1 value)
+        public IActionResult Post([FromBody] dynamic value)
         {
-            try
+         try
             {
                 obj.Table1.Add(value);
                 obj.SaveChanges();
