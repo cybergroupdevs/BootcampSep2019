@@ -29,7 +29,8 @@ namespace signup.Controllers
         }
         [HttpPost]
         [Route("signin")]
-        public ActionResult post([FromBody]dynamic userdata)
+        
+        public ActionResult post([FromHeader]dynamic userdata)
         {
             //var row = obj.Userdetails.SingleOrDefault(r => r.Username == userdata.Username);
             //if (row.Username == userdata.Username && row.Password == userdata.Password)
