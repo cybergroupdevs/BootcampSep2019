@@ -30,28 +30,23 @@ namespace signup.Controllers
         [HttpPost]
         [Route("signin")]
         
-        public ActionResult post([FromHeader]dynamic userdata)
+        public ActionResult post([FromBody]Userdetails userdata)
         {
-            //var row = obj.Userdetails.SingleOrDefault(r => r.Username == userdata.Username);
-            //if (row.Username == userdata.Username && row.Password == userdata.Password)
-            //{
-            //    return Ok("user Found");
-            //}
-            //return Unauthorized();
             try
             {
-                StringValues usernameValue;
-                StringValues passwordValue;
-                Request.Headers.TryGetValue("username", out usernameValue);
-                Request.Headers.TryGetValue("password", out passwordValue);
+                //StringValues usernameValue;
+                //StringValues passwordValue;
 
-                String username = usernameValue.FirstOrDefault();
-                String password = passwordValue.FirstOrDefault();
+                //Request.Headers.TryGetValue("username", out usernameValue);
+                //Request.Headers.TryGetValue("password", out passwordValue);
 
-                Userdetails loggedinUser = obj.Userdetails.Find(username);
+                //String username = usernameValue.FirstOrDefault();
+                //String password = passwordValue.FirstOrDefault();
+
+                Userdetails loggedinUser = obj.Userdetails.Find(userdata.Username);
                 try
                 {
-                    if (BCrypt.Net.BCrypt.Verify(password, loggedinUser.Password))
+                    if (BCrypt.Net.BCrypt.Verify(userdata.Password, loggedinUser.Password))
                     {
                         String tokenString = GenerateJSONWebToken(loggedinUser);
                         return Ok(new { token = tokenString });
@@ -82,17 +77,13 @@ namespace signup.Controllers
             try
             {
                 var currentUser = HttpContext.User;
-                //TODO: Make claims work, currently not working
-                //if (currentUser.HasClaim(c => c.Type == "Email"))
-                //{
-                //    String email = currentUser.Claims.FirstOrDefault(c => c.Type == "Email").Value;
-                //}
+                
                 return Ok(new { message = "Sample page working" });
 
             }
             catch (Exception ex)
             {
-
+                //return UnauthorizedResult();
             }
             return BadRequest();
         }
