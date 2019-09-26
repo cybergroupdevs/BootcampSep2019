@@ -19,6 +19,7 @@ $(document).ready( function(){
                     var tbl = "<tr><td>"+i+"</td><td>"+data[i].name+"</td><td>"+data[i].userId+"</td><td>"+data[i].colName+"</td><td>"+data[i].colId+"</td></tr>";
                     $("table tbody").append(tbl);
                 }
+        
 
             },
             error: function(msg){

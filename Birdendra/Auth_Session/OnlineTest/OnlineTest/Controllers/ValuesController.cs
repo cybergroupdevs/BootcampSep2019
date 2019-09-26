@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using OnlineTest.Models;
 
 namespace OnlineTest.Controllers
@@ -29,17 +30,24 @@ namespace OnlineTest.Controllers
         // POST api/values
         //[EnableCors("AllowedOrigins")]
         [HttpPost]
-        public IActionResult login([FromBody]SignUp value)
+        public IActionResult login([FromBody]dynamic value)
         {
             try
             {
                 //var val = obj.SignUp.Where(em => em.UserId == value.UserId ).ToList();
-                var val = obj.SignUp.SingleOrDefault(em => em.UserId == value.UserId);
+                StringValues emailValue;
+                StringValues pwdValue;
+                Request.Headers.TryGetValue("userId", out emailValue);
+                Request.Headers.TryGetValue("pwd", out pwdValue);
 
-                if (val != null )
+                string email = emailValue.FirstOrDefault();
+                string pwd = pwdValue.FirstOrDefault();
+
+                SignUp user = obj.SignUp.Find(email);
+                if ( user.UserId.Equals(email) )
                 {
-                    if ( val.Pwd == value.Pwd )
-                        return Ok(val);
+                    if (user.Pwd.Equals(pwd) )
+                        return Ok(true);
                     else
                         return BadRequest("Wrong password");
                 }
