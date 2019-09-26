@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
+using Microsoft.IdentityModel.Tokens;
 using OnlineTest.Models;
 
 namespace OnlineTest.Controllers
@@ -13,22 +19,21 @@ namespace OnlineTest.Controllers
     public class ValuesController : Controller
     {
         OnlineTesContext obj = new OnlineTesContext();
+        private IConfiguration _config;
+        
+        public ValuesController(IConfiguration config)
+        {
+            _config = config;
+        }
+        
         // GET api/values
+        //[Route("Get")]
         [HttpGet]
         public IEnumerable<SignUp> Get()
         {
             return obj.SignUp.ToList();
         }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        //public SignUp Get(string id)
-        //{
-           
-        //}
-
-        // POST api/values
-        //[EnableCors("AllowedOrigins")]
+   
         [HttpPost]
         public IActionResult login([FromBody]dynamic value)
         {
@@ -44,16 +49,32 @@ namespace OnlineTest.Controllers
                 string pwd = pwdValue.FirstOrDefault();
 
                 SignUp user = obj.SignUp.Find(email);
-                if ( user.UserId.Equals(email) == true )
+
+                //if ( user.UserId.Equals(email) == true )
+                //{
+                //    bool validPassword = BCrypt.Net.BCrypt.Verify( pwd , user.Pwd);
+                //    if ( validPassword )
+                //        return Ok(true);
+                //    else
+                //        return BadRequest("Wrong password");
+                //}
+                //else
+                //    return BadRequest("user doesnot exist");
+                try
                 {
-                    bool validPassword = BCrypt.Net.BCrypt.Verify( pwd , user.Pwd);
-                    if ( validPassword )
-                        return Ok(true);
+                    if (BCrypt.Net.BCrypt.Verify(pwd, user.Pwd))
+                    {
+                        string tokenString = GenerateJSONWebToken(user);
+                        return Ok(new { token = tokenString });
+                    }
                     else
-                        return BadRequest("Wrong password");
+                        return BadRequest("wrong password");
                 }
-                else
-                    return BadRequest("user doesnot exist");
+                catch (Exception e)
+                {
+
+                    return BadRequest(e);
+                }
             }
             catch(Exception e)
             {
@@ -62,28 +83,48 @@ namespace OnlineTest.Controllers
             
 
         }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{user_id}")]
-        public void Delete(string user_id)
+        
+        [Route("sample")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult sampleAuthRoute()
         {
             try
             {
-                obj.SignUp.Remove(obj.SignUp.FirstOrDefault(x => x.UserId == user_id));
-                obj.SaveChanges();
-            }
-            catch( Exception e)
-            {
-                //Console.WriteLine(e);
-                //Console.ReadKey();
-            }
+                var currentUser = HttpContext.User;
+                //TODO: Make claims work, currently not working
+                //if (currentUser.HasClaim(c => c.Type == "Email"))
+                //{
+                //    String email = currentUser.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+                //}
+                return Ok(new { message = "Sample page working" });
 
+            }
+            catch (Exception e)
+            {
+                return BadRequest("invalid sample" + e );
+            }
+            
         }
+        private string GenerateJSONWebToken(SignUp userInfo)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[] {
+                new Claim("Name", userInfo.Name),
+                new Claim("userId", userInfo.UserId),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
+              _config["Jwt:Issuer"],
+              claims,
+              expires: DateTime.Now.AddMinutes(120),
+              signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        // DELETE api/values/5
+        
     }
 }

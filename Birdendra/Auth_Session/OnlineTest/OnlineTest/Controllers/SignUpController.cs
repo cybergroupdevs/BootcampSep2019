@@ -9,7 +9,7 @@ using OnlineTest.Models;
 
 namespace OnlineTest.Controllers
 {
-    [Produces("application/json")]
+
     [Route("api/SignUp")]
     public class SignUpController : Controller
     {
@@ -33,27 +33,19 @@ namespace OnlineTest.Controllers
         {
             return "value";
         }
-        
-        // POST: api/SignUp
-        [HttpPost]
-        public IActionResult Post([FromBody]SignUp value)
+       [HttpPost]
+        public IActionResult Signup([FromBody]SignUp value)
         {
             try
             {
-                
-                string hashPwd = BCrypt.Net.BCrypt.HashPassword(value.Pwd);
-                SignUp user = new SignUp();
-                user.UserId = value.UserId;
-                user.Pwd = hashPwd;
-                user.Name = value.Name;
-                user.ColName = value.ColName;
-                user.ColId = value.ColId;
+
+                value.Pwd = BCrypt.Net.BCrypt.HashPassword(value.Pwd);
 
                 var check_obj = obj.SignUp.Find(value.UserId);
 
                 if (check_obj == null)
                 {
-                    obj.SignUp.Add(user);
+                    obj.SignUp.Add(value);
                     obj.SaveChanges();
                     return Ok(true);
                 }
@@ -61,15 +53,17 @@ namespace OnlineTest.Controllers
                 {
                     return BadRequest("user already exist");
                 }
-                
+
 
             }
-            catch( Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e);
             }
 
         }
+        // POST: api/SignUp
+        
         
         // PUT: api/SignUp/5
         [HttpPut("{id}")]
