@@ -41,9 +41,12 @@ namespace employabilityTest.Controllers
                 String username = emailValue.FirstOrDefault();
                 String password = passwordValue.FirstOrDefault();
                 Signup loggedinUser = obj.Signup.Find(username);
+                var hashedPassword = loggedinUser.Password;
+                bool validPassword = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+
                 try
                 {
-                    if (loggedinUser.Password.Equals(password))
+                    if (validPassword == true)
                     {
                         return Ok(true);
                     }
@@ -59,15 +62,17 @@ namespace employabilityTest.Controllers
             }
             return BadRequest();
         }
+        
+
         //var row = obj.Signup.SingleOrDefault(r => r.Username == value.Username);
         //if(row.Username==value.Username && row.Password==value.Password)
         //{
         //    return Ok("user in database");
         //}
         //return Unauthorized();
-  
 
-        
+
+
         // PUT: api/login/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)

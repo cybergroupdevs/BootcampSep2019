@@ -32,7 +32,10 @@ namespace employabilityTest.Controllers
         {
             try
             {
+               var hashedPassword = BCrypt.Net.BCrypt.HashPassword(value.Password);
+                value.Password = hashedPassword;
                 et.Signup.Add(value);
+
                 et.SaveChanges();
                 return Ok(value);
             }
