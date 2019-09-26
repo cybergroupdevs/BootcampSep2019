@@ -11,6 +11,8 @@ namespace testportal.Controllers
     public class ValuesController : Controller
     {
         onlinetestportalContext obj = new onlinetestportalContext();
+        private string hashedPassword;
+
         // GET api/values
         [HttpGet]
         public IEnumerable<Table1> Get()
@@ -28,10 +30,12 @@ namespace testportal.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody] dynamic value)
+        public IActionResult Post([FromBody] Table1 value)
         {
          try
             {
+                hashedPassword = BCrypt.Net.BCrypt.HashPassword(value.Password);
+                value.Password = hashedPassword;
                 obj.Table1.Add(value);
                 obj.SaveChanges();
                 return Ok(value);

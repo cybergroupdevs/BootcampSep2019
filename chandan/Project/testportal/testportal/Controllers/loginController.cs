@@ -41,12 +41,19 @@ namespace testportal.Controllers
             String password = passwordValue.FirstOrDefault();
 
             Table1 loggedinUser = obj.Table1.Find(username);
+            String uname = loggedinUser.Password;
+
             try
             {
-                if (loggedinUser.Password.Equals(password))
+
+                if( BCrypt.Net.BCrypt.Verify(password, uname))
                 {
                     return Ok(true);
                 }
+                //if (loggedinUser.Password.Equals(password))
+               // {
+                //    return Ok(true);
+                //}
             }
             catch (Exception ex)
             {
