@@ -26,6 +26,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>signUp Page</title>
+    <script>
+        function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="598184578063-65v1cbag9eeppb0fr4v5apqp33j6e1tt.apps.googleusercontent.com"></meta>
 </head>
 
 <body>
@@ -59,12 +70,14 @@
                     <label for="collegeId" style="color: white">College Id:</label>
                     <input type="text" class="form-control" id="CollegeId" placeholder="Roll Number" >
                 </div>
+                
+                <div class="g-signin2" data-onsuccess="onSignIn" style="float: center;"></div>
 
                 <!-- <div class="checkbox">
                     <label><input type="checkbox" name="Agree"> Are above details Correct</label>
                 </div> -->
                 <button type="button" id="btn1" class="btn btn-default"
-                    style="background-color: yellow; padding: 20px;float: right;"></a>Submit</button>
+                    style="background-color: rgb(255, 174, 0); padding: 20px;float: right;">  Submit </button>
             </form>
         </div>
     </div>

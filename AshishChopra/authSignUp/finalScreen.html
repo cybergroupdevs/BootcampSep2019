@@ -1,46 +1,9 @@
 <html>
     <head>
-            <title>main screen</title>
-            
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-            
-            
-            
-            
+            <title>Final screen</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="BearerToken.js"></script>
     </head>
-    <script>
-            $(document).ready(function()
-            {
-                $.ajax({
-                    type: "GET",
-                    url: "http://localhost:61226/sample",
-                    contentType:"application/json;charset=utf-8",
-                    dataType:"json",
-                    recent:localStorage.getItem('token');
-                    success:function(recent){
-                        console.log();
-                    },
-                    error:function(xhr,textSatus,errorThrown){
-                        console.log("error");
-                    }
-              
-
-
-
-
-                });
-
-
-
-
-            });
-
-
-
-
-
-        </script>
-
 
 <body>
     <p>Success</p>
