@@ -1,7 +1,11 @@
+<!DOCTYPE html>
 <html>
 <title>Online test portal</title>
 
 <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="590244565922-3cmj6dfbp9lqn4rkuqvknphsq011v004.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,7 +16,7 @@
   .jumbotron {
     margin-top:10px;
     margin-left: 250;
-    margin-right: 250;
+    margin-right: 250;  
     height:640;
     opacity: 0.85;
   }
@@ -53,8 +57,10 @@
                           </div>
 
             <div style="text-align:center">
-            <button type="submit" id="x" class="btn btn-success"><a href="loginscreen.html" style="color: white;text-decoration:none;">Account Created</a></button>
-             </div>
+            <button type="submit" id="x" class="btn btn-success" ><a href="loginscreen.html" style="color: white;text-decoration:none;">Create Account</a></button>
+            <button data-onsuccess="onSignIn"class="g-signin2"><a href="" style="color: white;text-decoration:none;">Sign with Gmail</a></button>
+            <!--div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div-->
+          </div>
            </form>
 
     </div>

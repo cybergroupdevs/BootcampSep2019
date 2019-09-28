@@ -34,8 +34,8 @@ namespace testportal.Controllers
         {
          try
             {
-                hashedPassword = BCrypt.Net.BCrypt.HashPassword(value.Password);
-                value.Password = hashedPassword;
+               // hashedPassword = BCrypt.Net.BCrypt.HashPassword(value.Password);
+                //value.Password = hashedPassword;
                 obj.Table1.Add(value);
                 obj.SaveChanges();
                 return Ok(value);
