@@ -85,8 +85,8 @@ class Calculator {
 }
 c = new Calculator();
 //main function to invoke from html page
-function input(id) {
-	clickV = document.getElementById(id).innerHTML;
+function input(clickV) {
+	 
 	switch (clickV) {
 		case '=':
 			if (c.inputStr.indexOf('^') > -1) {
@@ -122,3 +122,13 @@ function input(id) {
 			document.getElementById("res").innerHTML = c.inputStr;
 	}
 }
+document.addEventListener("keypress", function(event){
+	var x = event.keyCode;
+	var y = String.fromCharCode(x);
+	if ( (x >= 40 && x <= 57 ) || x == 94 || x == 61 ){
+		input(y);
+	}
+	else if ( x == 13 ){
+	input( "=");
+	}
+});
