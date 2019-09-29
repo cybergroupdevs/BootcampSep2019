@@ -20,20 +20,21 @@ namespace OnlineTest.Controllers
     {
         OnlineTesContext obj = new OnlineTesContext();
         private IConfiguration _config;
-        
+
         public ValuesController(IConfiguration config)
         {
             _config = config;
         }
-        
-        // GET api/values
-        //[Route("Get")]
-        [HttpGet]
+
+       // GET api/values
+      // [Route("Get")]
+       [HttpGet]
         public IEnumerable<SignUp> Get()
         {
             return obj.SignUp.ToList();
         }
-   
+
+        
         [HttpPost]
         public IActionResult login([FromBody]dynamic value)
         {
@@ -50,31 +51,31 @@ namespace OnlineTest.Controllers
 
                 SignUp user = obj.SignUp.Find(email);
 
-                //if ( user.UserId.Equals(email) == true )
-                //{
-                //    bool validPassword = BCrypt.Net.BCrypt.Verify( pwd , user.Pwd);
-                //    if ( validPassword )
-                //        return Ok(true);
-                //    else
-                //        return BadRequest("Wrong password");
-                //}
-                //else
-                //    return BadRequest("user doesnot exist");
-                try
+                if (user.UserId.Equals(email) == true)
                 {
-                    if (BCrypt.Net.BCrypt.Verify(pwd, user.Pwd))
-                    {
-                        string tokenString = GenerateJSONWebToken(user);
-                        return Ok(new { token = tokenString });
-                    }
+                    bool validPassword = BCrypt.Net.BCrypt.Verify(pwd, user.Pwd);
+                    if (validPassword)
+                        return Ok(true);
                     else
-                        return BadRequest("wrong password");
+                        return BadRequest("Wrong password");
                 }
-                catch (Exception e)
-                {
+                else
+                    return BadRequest("user doesnot exist");
+                //try
+                //{
+                //    if (BCrypt.Net.BCrypt.Verify(pwd, user.Pwd))
+                //    {
+                //        string tokenString = GenerateJSONWebToken(user);
+                //        return Ok(new { token = tokenString });
+                //    }
+                //    else
+                //        return BadRequest("wrong password");
+                //}
+                //catch (Exception e)
+                //{
 
-                    return BadRequest(e);
-                }
+                //    return BadRequest(e);
+                //}
             }
             catch(Exception e)
             {
@@ -92,10 +93,10 @@ namespace OnlineTest.Controllers
             try
             {
                 var currentUser = HttpContext.User;
-                //TODO: Make claims work, currently not working
-                //if (currentUser.HasClaim(c => c.Type == "Email"))
+                //todo: make claims work, currently not working
+                //if (currentuser.hasclaim(c => c.type == "email"))
                 //{
-                //    String email = currentUser.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+                //    string email = currentuser.claims.firstordefault(c => c.type == "email").value;
                 //}
                 return Ok(new { message = "Sample page working" });
 

@@ -22,7 +22,7 @@ $(document).ready( function(){
 
                 console.log( data, status);
                localStorage.setItem("token",data.token);
-                window.open("sample.html");
+                window.open("success.html");
 
             },
             error: function(msg){
