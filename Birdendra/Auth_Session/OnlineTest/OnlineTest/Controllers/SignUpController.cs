@@ -39,7 +39,7 @@ namespace OnlineTest.Controllers
             try
             {
 
-                value.Pwd = BCrypt.Net.BCrypt.HashPassword(value.Pwd);
+                //value.Pwd = BCrypt.Net.BCrypt.HashPassword(value.Pwd);
 
                 var check_obj = obj.SignUp.Find(value.UserId);
 

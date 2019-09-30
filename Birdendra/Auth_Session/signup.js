@@ -31,6 +31,9 @@ function onSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    var token = googleUser.getAuthResponse().id_token;
+    localStorage.setItem("token",token);
+    console.log(localStorage.getItem("token"));
     $.ajax("http://localhost:58530/api/SignUp",{
             type:"POST",
             dataType: "json",
@@ -38,7 +41,7 @@ function onSignIn(googleUser) {
             data:JSON.stringify(
                 {  
                     "userId": profile.getEmail(),
-                    // "pwd": "",
+                    // "pwd": token,
                     "name": profile.getName(),
                     // "colName": "",
                     // "colId": ""

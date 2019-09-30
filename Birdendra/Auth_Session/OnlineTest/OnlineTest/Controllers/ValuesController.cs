@@ -44,7 +44,7 @@ namespace OnlineTest.Controllers
                 StringValues emailValue;
                 StringValues pwdValue;
                 Request.Headers.TryGetValue("userId", out emailValue);
-                Request.Headers.TryGetValue("pwd", out pwdValue);
+                //Request.Headers.TryGetValue("pwd", out pwdValue);
 
                 string email = emailValue.FirstOrDefault();
                 string pwd = pwdValue.FirstOrDefault();
@@ -53,11 +53,11 @@ namespace OnlineTest.Controllers
 
                 if (user.UserId.Equals(email) == true)
                 {
-                    bool validPassword = BCrypt.Net.BCrypt.Verify(pwd, user.Pwd);
-                    if (validPassword)
-                        return Ok(true);
-                    else
-                        return BadRequest("Wrong password");
+                    //bool validPassword = BCrypt.Net.BCrypt.Verify(pwd, user.Pwd);
+                    //if (validPassword)
+                       return Ok(true);
+                    //else
+                    //    return BadRequest("Wrong password");
                 }
                 else
                     return BadRequest("user doesnot exist");
