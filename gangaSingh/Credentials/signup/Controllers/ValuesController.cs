@@ -10,6 +10,10 @@ namespace signup.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        protected string googleplus_client_id = "432257726722-7uqkb1jsgmenfolc9vochcc80nkv5qi7.apps.googleusercontent.com";    // Replace this with your Client ID
+        protected string googleplus_client_secret = "TbaakkDh9N3ZzOhQrwe-3fvY";                                                // Replace this with your Client Secret
+        protected string googleplus_redirect_url = "http://localhost:5500/newpage.html";                                         // Replace this with your Redirect URL; Your Redirect URL from your developer.google application should match this URL.
+        protected string Parameters;
         // GET api/values
         dataContext obj = new dataContext();
         [HttpGet]
@@ -25,14 +29,29 @@ namespace signup.Controllers
        [Route("signup")]
        public IActionResult post([FromBody]Userdetails userdata)
         {
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(userdata.Password);
-            userdata.Password = hashedPassword;
+            // var hashedPassword = BCrypt.Net.BCrypt.HashPassword(userdata.Password);
+            // userdata.Password = hashedPassword;
+            var user = obj.Userdetails.FirstOrDefault(a => a.Username==userdata.Username);
+
             try
             {
-                obj.Userdetails.Add(userdata);
-                //obj.Studentdetails.Add(userdata.Username);
-                obj.SaveChanges();
-                return Ok("User Added");
+                if (user == null)
+                {
+                    obj.Userdetails.Add(userdata);
+                    //obj.Studentdetails.Add(userdata.Username);
+                    obj.SaveChanges();
+                    return Ok("tokenIsValid");
+                }
+                else
+                {
+                    if (user.Password == userdata.Password)
+                    {
+                        return Ok("tokenIsValid");
+                    }
+                    return Ok("tokenIsInvalid");
+                }
+                //return BadRequest("User alredy exist");
+                
             }
             catch (Exception ex)
             {

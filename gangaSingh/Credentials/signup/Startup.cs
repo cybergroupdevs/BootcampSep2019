@@ -34,22 +34,31 @@ namespace signup
         {
             services.AddCors(options => options.AddPolicy("ApiCorsPolicy", builder =>
             {
-                builder.WithOrigins("http://127.0.0.1:5500").AllowAnyMethod().AllowAnyHeader();
+                builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
             }));
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = Configuration["Jwt:Issuer"],
-            ValidAudience = Configuration["Jwt:Issuer"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("Jwt:Key")))
-        };
-    });
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //.AddJwtBearer(options =>
+            //{
+            //     options.TokenValidationParameters = new TokenValidationParameters
+            //{
+            //    ValidateIssuer = true,
+            //    ValidateAudience = true,
+            //    ValidateLifetime = true,
+            //    ValidateIssuerSigningKey = true,
+            //    ValidIssuer = Configuration["Jwt:Issuer"],
+            //    ValidAudience = Configuration["Jwt:Issuer"],
+            //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("Jwt:Key")))
+            //};
+            //});
+            services.AddAuthentication()
+             .AddGoogle(options =>
+             {
+                 IConfigurationSection googleAuthNSection =
+                 Configuration.GetSection("Authentication:Google");
+
+                 options.ClientId = googleAuthNSection["432257726722-7uqkb1jsgmenfolc9vochcc80nkv5qi7.apps.googleusercontent.com"];
+                 options.ClientSecret = googleAuthNSection["TbaakkDh9N3ZzOhQrwe-3fvY"];
+             });
             services.AddMvc();
         }
 

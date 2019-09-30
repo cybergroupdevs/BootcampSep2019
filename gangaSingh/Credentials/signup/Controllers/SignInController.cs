@@ -35,7 +35,7 @@ namespace signup.Controllers
         }
         [HttpPost]
         [Route("signin")]
-        
+
         public ActionResult post([FromBody]Userdetails userdata)
         {
             try
@@ -78,14 +78,32 @@ namespace signup.Controllers
         [Route("sample")]
         [HttpGet]
         [Authorize]
-        public IActionResult sampleAuthRoute([FromHeader]Userdetails user)
+        public IActionResult sampleAuthRoute()
         {
 
             try
             {
                 var currentUser = HttpContext.User;
-                
-                return Ok();
+
+                return Ok("200");
+
+            }
+            catch (Exception ex)
+            {
+                //return UnauthorizedResult();
+            }
+            return BadRequest();
+        }
+        [Route("getImage")]
+        [HttpPost]
+        public IActionResult samplegetImage([FromBody]Userdetails user)
+        {
+
+            try
+            {
+                Userdetails currentUrl = obj.Userdetails.Find(user.Username);
+                String url = currentUrl.Password;
+                return Ok(url);
 
             }
             catch (Exception ex)
