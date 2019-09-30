@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TODO supply a title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/json2/0.1/json2.js"></script>
+
+</head>
+
+<body>
+  <div class="main">
+    <div class="form">
+      <h1>
+        <p align="center">Login form</p>
+      </h1>
+
+      <form name="MyForm" id="MyForm" align="center">
+        <button class="btn" type="button"><b>Login</b></button>
+        <a href="/signup.html"> <button class="btn" type="button"> Sign Up</button></a>
+        <br><br><br><br>
+
+        <b>Username:</b><input type="text" id="username" name="username" placeholder="User name"><br><br>
+        <b>Password:</b><input type="password" id="password" placeholder="Password" name="password"><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="btnn">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <center><button type="button" id="savedata">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button">Forget
+              Password</button><br>
+</center>
+</form>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+        $('#savedata').click(function () {
+            
+              var user_name = document.getElementById("username").value;
+              var password = document.getElementById("password").value;
+              console.log(user_name+''+password);
+    
+            $.ajax({
+                url: "http://localhost:60534/api/login",
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                headers:{
+                  "username" : user_name,
+                  "password" : password,
+                },
+            //     data:JSON.stringify(
+            //     {  
+            //         "username" : user_name,
+            //         "password" : password,
+            //     }
+            // ),
+
+            success:function(headers, status){
+                console.log("Hello", headers, status);
+                localStorage.setItem('token', headers.token)
+               window.open("sample.html");
+                
+            },
+            error: function(obj){
+               console.log("error");
+                alert( obj.responseText);
+            }
+            });
+        });
+    });
+</script>
+</body>
+
+</html>
