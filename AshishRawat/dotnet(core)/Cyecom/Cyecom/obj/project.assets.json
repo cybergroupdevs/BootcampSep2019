@@ -13649,11 +13649,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ashish.rawat\\source\\repos\\Cyecom\\Cyecom\\Cyecom.csproj",
+      "projectUniqueName": "E:\\BootcampSep2019\\AshishRawat\\dotnet(core)\\Cyecom\\Cyecom\\Cyecom.csproj",
       "projectName": "Cyecom",
-      "projectPath": "C:\\Users\\ashish.rawat\\source\\repos\\Cyecom\\Cyecom\\Cyecom.csproj",
+      "projectPath": "E:\\BootcampSep2019\\AshishRawat\\dotnet(core)\\Cyecom\\Cyecom\\Cyecom.csproj",
       "packagesPath": "C:\\Users\\ashish.rawat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ashish.rawat\\source\\repos\\Cyecom\\Cyecom\\obj\\",
+      "outputPath": "E:\\BootcampSep2019\\AshishRawat\\dotnet(core)\\Cyecom\\Cyecom\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
