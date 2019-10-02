@@ -8,12 +8,12 @@ using testportal.Models;
 namespace testportal.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class SignupController : Controller
     {
         onlinetestportalContext obj = new onlinetestportalContext();
         private string hashedPassword;
 
-        // GET api/values
+        // GET api/Signup
         [HttpGet]
         public IEnumerable<Table1> Get()
         {
@@ -21,14 +21,14 @@ namespace testportal.Controllers
             return itm;
         }
 
-        // GET api/values/5
+        // GET api/Signup/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
+        // POST api/Signup
         [HttpPost]
         public IActionResult Post([FromBody] Table1 value)
         {
@@ -47,13 +47,13 @@ namespace testportal.Controllers
             
         }
 
-        // PUT api/values/5
+        // PUT api/Signup/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/Signup/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

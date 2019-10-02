@@ -23,7 +23,8 @@ $(document).ready(function(){
             success:function(headers,status){ 
                 console.log("hello",headers,status);
                 localStorage.setItem('token',headers.token);
-                window.location.replace("mainscreen.html");
+                console.log(headers.token);
+               // window.location.replace("mainscreen.html");
             },
             error:function(msg)
             {

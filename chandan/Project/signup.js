@@ -9,7 +9,7 @@ function onSignIn(googleUser) {
   console.log("Ehmail: " + profile.getEmail());
   var id_token = googleUser.getAuthResponse().id_token;
   console.log("ID Token: " + id_token);
-  $.ajax("http://localhost:61549/api/values", {
+  $.ajax("http://localhost:61549/api/Signup", {
   type: "POST",
   dataType: "json",
   contentType: "application/json",
@@ -67,7 +67,7 @@ $(document).ready(function () {
 
 
 
-    $.ajax("http://localhost:61549/api/values", {
+    $.ajax("http://localhost:61549/api/Signup", {
       type: "POST",
       dataType: "json",
       contentType: "application/json",
