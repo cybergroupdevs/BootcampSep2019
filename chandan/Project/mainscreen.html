@@ -7,15 +7,15 @@
         $(document).ready(function(){
          $.ajax({
            type:"GET",
-           url:"http://localhost:61549/sample",
+           url:"http://localhost:61549/checkToken",
            contentType:"application/json;charset=utf-8",
            dataType:"json",
            recent:localStorage.getItem('token'),
            success:function(recent){
-               console.log();
+               console.log("Authorized User");
            },
            error:function(xhr,textStatus,errorThrown){
-               console.log("Error");
+               console.log("UnAunthorized User");
            }
          });
         });

@@ -90,20 +90,16 @@ namespace testportal.Controllers
         {
         }
 
-        [Route("sample")]
+        [Route("checkToken")]
         [HttpGet]
         [Authorize]
-        public IActionResult sampleAuthRoute()
+        public IActionResult CheckTokenAuthRoute()
         {
             try
             {
                 var currentUser = HttpContext.User;
-                //TODO: Make claims work, currently not working
-                //if (currentUser.HasClaim(c => c.Type == "Email"))
-                //{
-                //    String email = currentUser.Claims.FirstOrDefault(c => c.Type == "Email").Value;
-                //}
-                return Ok(new { message = "Sample page working" });
+            
+                return Ok(new { message = "Main Screen Loading...." });
 
             }
             catch (Exception ex)
