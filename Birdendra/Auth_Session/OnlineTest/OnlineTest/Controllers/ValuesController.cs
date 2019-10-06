@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@ using OnlineTest.Models;
 
 namespace OnlineTest.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class ValuesController : Controller
     {
         OnlineTesContext obj = new OnlineTesContext();
@@ -26,9 +27,10 @@ namespace OnlineTest.Controllers
             _config = config;
         }
 
-       // GET api/values
-      // [Route("Get")]
-       [HttpGet]
+      
+        [HttpGet]
+        [Authorize]
+        [Route("Get")]
         public IEnumerable<SignUp> Get()
         {
             return obj.SignUp.ToList();
@@ -36,46 +38,46 @@ namespace OnlineTest.Controllers
 
         
         [HttpPost]
-        public IActionResult login([FromBody]dynamic value)
+        [Route("login")]
+        public IActionResult login([FromBody]SignUp user)
         {
             try
             {
                 //var val = obj.SignUp.Where(em => em.UserId == value.UserId ).ToList();
-                StringValues emailValue;
-                StringValues pwdValue;
-                Request.Headers.TryGetValue("userId", out emailValue);
+                //StringValues emailValue;
+                //StringValues pwdValue;
+                //Request.Headers.TryGetValue("userId", out emailValue);
                 //Request.Headers.TryGetValue("pwd", out pwdValue);
+               
+                //string email = obj.value.FirstOrDefault();
+                //string pwd = pwdValue.FirstOrDefault();
 
-                string email = emailValue.FirstOrDefault();
-                string pwd = pwdValue.FirstOrDefault();
-
-                SignUp user = obj.SignUp.Find(email);
-
-                if (user.UserId.Equals(email) == true)
+                //SignUp user = obj.SignUp.Find(email);
+                //pick user from db
+                var loginedUser = obj.SignUp.Find( user.UserId);
+                //check user exist or not
+             
+                if (user.UserId.Equals(loginedUser.UserId) == true)
                 {
-                    //bool validPassword = BCrypt.Net.BCrypt.Verify(pwd, user.Pwd);
-                    //if (validPassword)
-                       return Ok(true);
-                    //else
-                    //    return BadRequest("Wrong password");
+                    //validate password
+                    try
+                    {
+                        if (BCrypt.Net.BCrypt.Verify(user.Pwd, loginedUser.Pwd))
+                        {
+                            //generate token
+                            string tokenString = GenerateJSONWebToken(loginedUser);
+                            return Ok(new { token = tokenString });
+                        }
+                        else
+                            return BadRequest("Wrong password");
+                    }
+                    catch (Exception e )
+                    {
+                        return BadRequest(e);
+                    }
                 }
                 else
                     return BadRequest("user doesnot exist");
-                //try
-                //{
-                //    if (BCrypt.Net.BCrypt.Verify(pwd, user.Pwd))
-                //    {
-                //        string tokenString = GenerateJSONWebToken(user);
-                //        return Ok(new { token = tokenString });
-                //    }
-                //    else
-                //        return BadRequest("wrong password");
-                //}
-                //catch (Exception e)
-                //{
-
-                //    return BadRequest(e);
-                //}
             }
             catch(Exception e)
             {
@@ -84,29 +86,38 @@ namespace OnlineTest.Controllers
             
 
         }
-        
-        [Route("sample")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult sampleAuthRoute()
+        [HttpPost]
+        [Route("Signup")]
+        public IActionResult Signup([FromBody]SignUp value)
         {
             try
             {
-                var currentUser = HttpContext.User;
-                //todo: make claims work, currently not working
-                //if (currentuser.hasclaim(c => c.type == "email"))
-                //{
-                //    string email = currentuser.claims.firstordefault(c => c.type == "email").value;
-                //}
-                return Ok(new { message = "Sample page working" });
+
+                value.Pwd = BCrypt.Net.BCrypt.HashPassword(value.Pwd);
+
+                var check_obj = obj.SignUp.Find(value.UserId);
+
+                if (check_obj == null)
+                {
+                    obj.SignUp.Add(value);
+                    obj.SaveChanges();
+                    return Ok(true);
+                }
+                else
+                {
+                    return BadRequest("user already exist");
+                }
+
 
             }
             catch (Exception e)
             {
-                return BadRequest("invalid sample" + e );
+                return BadRequest(e);
             }
-            
+
         }
+
+        
         private string GenerateJSONWebToken(SignUp userInfo)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
@@ -120,7 +131,7 @@ namespace OnlineTest.Controllers
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
               claims,
-              expires: DateTime.Now.AddMinutes(120),
+              expires: DateTime.Now.AddMinutes(60),
               signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

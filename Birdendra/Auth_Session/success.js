@@ -2,12 +2,12 @@ $(document).ready( function(){
     $('#btn').click( function(){
         // console.log(user_id+' '+pwd);
        
-        
-        $.ajax("http://localhost:58530/api/SignUp",{
+        console.log(window.localStorage.getItem('token'));
+        $.ajax("http://localhost:58530/values/Get",{
             type:"GET",
+            headers: {"Authorization": window.localStorage.getItem('token')},
             dataType: "json",
             contentType: "application/json",
-            
             success:function(data, status){
 
                 // window.open("success.html");
@@ -19,8 +19,6 @@ $(document).ready( function(){
                     var tbl = "<tr><td>"+i+"</td><td>"+data[i].name+"</td><td>"+data[i].userId+"</td><td>"+data[i].colName+"</td><td>"+data[i].colId+"</td></tr>";
                     $("table tbody").append(tbl);
                 }
-        
-
             },
             error: function(msg){
                 console.log(msg.responseText);

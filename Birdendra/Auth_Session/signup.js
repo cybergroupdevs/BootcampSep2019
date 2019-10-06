@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $(".signupbtn").click(function(){
-        $.ajax("http://localhost:58530/api/SignUp",{
+        $.ajax("http://localhost:58530/values/Signup",{
             type:"POST",
             dataType: "json",
             contentType: "application/json",

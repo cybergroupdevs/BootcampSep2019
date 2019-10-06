@@ -4,20 +4,20 @@ $(document).ready( function(){
         var pwd1 = document.getElementById("pwd").value;
         // console.log(user_id+' '+pwd);
         
-        $.ajax("http://localhost:58530/api/values",{
+        $.ajax("http://localhost:58530/values/login",{
             type:"POST",
-            headers:{
-                "userId":user_id,
-                "pwd": pwd1
-            },
+            // headers:{
+            //     "userId":user_id,
+            //     "pwd": pwd1
+            // },
             dataType: "json",
             contentType: "application/json",
-            // data:JSON.stringify(
-            //     {  
-            //         "userId" : user_id,
-            //         "pwd" : pwd1
-            //     }
-            // ),
+            data:JSON.stringify(
+                {  
+                    "userId" : user_id,
+                    "pwd" : pwd1
+                }
+            ),
             success:function(data, status){
 
                 console.log( data, status);

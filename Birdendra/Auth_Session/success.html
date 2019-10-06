@@ -27,34 +27,9 @@
     <button id="btn">Click To show data</button>
     <div>
         <table id ="table" >
-            <tr>
-                
-            </tr>
+            <tr></tr>
         </table>
     </div>
-    <button id="btn">click to check token</button>
-    <script>
-        $(document).ready(function(){
-            $("#btn").click(function(){
-                $.ajax("http://localhost:58530/sample",{
-                    type:"GET",
-                    dataType: "json",
-                    contentType: "application/json; charset=utf-8",
-                        success:function(data, status){
-
-                        console.log( data, status);
-                            alert(data.responseText);
-                        //window.open("success.html");
-
-                    },
-                    error: function(msg){
-                        console.log(msg.responseText);
-                        alert(msg.responseText);
-            }
-        });
-    });
-});
-    </script>
     <script src="success.js"></script>
 </body>
 </html>
