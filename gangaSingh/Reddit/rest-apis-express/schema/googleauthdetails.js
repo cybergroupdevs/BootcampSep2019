@@ -4,3 +4,4 @@ var googleauthdetailsschema = new mongoose.Schema({
 });
 
 var googleauthdetailsmodel = mongoose.model('googleauthdetailsmodel', googleauthdetailsschema);
+exports.googleauthdetailsmodel = googleauthdetailsmodel;
