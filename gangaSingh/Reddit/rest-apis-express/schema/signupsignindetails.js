@@ -5,3 +5,4 @@ var signupsignindetailsschema = new mongoose.Schema({
 });
 
 var signupsignindetailsmodel = mongoose.model('signupsignindetailsmodel', signupsignindetailsschema);
+exports.signupsignindetailsmodel = signupsignindetailsmodel;
