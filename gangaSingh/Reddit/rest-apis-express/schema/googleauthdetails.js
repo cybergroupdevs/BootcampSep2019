@@ -1,5 +1,5 @@
 var googleauthdetailsschema = new mongoose.Schema({
-    email     : String,
+    email       : String,
     imageurl    : String,
 });
 
