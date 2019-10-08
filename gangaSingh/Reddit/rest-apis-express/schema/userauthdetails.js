@@ -4,3 +4,4 @@ var usserauthdetailsschema = new mongoose.Schema({
 });
 
 var userauthdetailsmodel = mongoose.model('userauthdetailsmodel', userauthdetailsschema);
+exports.userauthdetailsmodel = userauthdetailsmodel;
