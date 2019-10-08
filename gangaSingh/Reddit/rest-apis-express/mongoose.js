@@ -10,4 +10,5 @@ db.once('open', function() {
     console.log("Connected to Mongo server successfully");
 });
 
+exports.db = db;
 
