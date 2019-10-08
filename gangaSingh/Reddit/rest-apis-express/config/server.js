@@ -7,7 +7,7 @@ const apiRouter = require('../router/apiRouter');
 
 const { PORT, HOST } = require("./config");
 
-//const connMongoDb =
+const connMongoDb = require("../mongoose");
 
 const server = express();
 
