@@ -2,7 +2,7 @@ $(document).ready(function()
 {
     $.ajax({
         type: "GET",
-        url: "http://localhost:61226/sample",
+        url: "http://localhost:61226/authorization",
         contentType:"application/json;charset=utf-8",
         headers:{
             "Authorization":"Bearer" + localStorage.getItem('token')
