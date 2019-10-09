@@ -26,9 +26,7 @@ function createUser(req, res) {
 function updateUser(req, res) {
   const body = req.body;
   const id = req.query.id;
-}
   console.log(id);
-
   for (let key in body) {
     users[id][key] = body[key];
   }
@@ -39,6 +37,10 @@ function updateUser(req, res) {
     message: "Client Updated!"
   });
 
+}
+  
+
+ 
 function deleteUser(req, res) {
   const id = req.query.id;
 
