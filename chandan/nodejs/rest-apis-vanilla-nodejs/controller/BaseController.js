@@ -91,10 +91,10 @@ class BaseController {
       console.error(err);
     }
   }
+}
 
 
-//exports.BaseController= BaseController;
-//const path = require('path');
+const path = require('path');
 
 function readFile() {
   const dbPath = path.join(__dirname, "../db", "users.json");
@@ -105,3 +105,4 @@ function writeFile(data) {
   const dbPath = path.join(__dirname, "../db", "users.json");
   return fs.promises.writeFile(dbPath, JSON.stringify(data));
 }
+exports.BaseController= BaseController;
