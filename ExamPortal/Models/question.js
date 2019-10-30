@@ -29,6 +29,7 @@ const questionDetails = new Schema({
 
 const questionDetail = mongoose.model('question',questionDetails)
 
-	module.exports = {
-		questionDetail
+module.exports = {
+	questionDetail
+
 }
