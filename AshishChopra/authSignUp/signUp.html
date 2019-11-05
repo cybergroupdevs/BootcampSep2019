@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .backGroundColor {
+            background-color: rgb(0, 0, 0);
+            width: auto;
+        }
+        label {
+            font-size: 25px;
+        }
+        .fontColor {
+            color: white;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>signUp Page</title>
+    <script >
+    function onSignIn(googleUser) {
+  
+            var profile = googleUser.getBasicProfile();
+          
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            var user_id = googleUser.getAuthResponse().user_id;
+ }
+ $.ajax({
+           
+           type:"POST",
+           url:"http://localhost:61226/api/User",
+           dataType:"JSON",
+           
+           contentType:"application/json;charset=utf-8",
+           headers: JSON.stringify(
+               {
+                   "Email" : profile.getEmail(),
+                   "Password":"null",
+                   //"ConfirmPassword":profile.getImageUrl(),
+               }
+           ),
+           success:function(_data,success){
+            console.log("Authorized",data,success)
+           },
+   
+          error:function(){
+               window.alert("Error");
+           }
+       });
+    
+    </script>
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="598184578063-65v1cbag9eeppb0fr4v5apqp33j6e1tt.apps.googleusercontent.com">  
+ 
+  </head>
+
+<body>
+    <div class="backGroundColor">
+        <h1 style="text-align: center;font-size: 50px;color: rgba(255, 255, 255, 0.678)">Sign Up</h1>
+        <div class="container">
+
+            <form>
+                <div class="form-group">
+                    <label for="name" style="color: white">Name:</label>
+                    <input type="text" class="form-control" id="name1" placeholder="Enter name" >
+                </div>
+                <div class="form-group">
+                    <label for="email" style="color: white">Email:</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter email" >
+                </div>
+                <div class="form-group">
+                    <label for="pwd" style="color: white">Password:</label>
+                    <input type="text" class="form-control" id="pwd" placeholder="Enter password" >
+                </div>
+                <div class="form-group">
+                    <label for="renamePwd" style="color: white">Confirm Password:</label>
+                    <input type="text" class="form-control" id="pwd1" placeholder="Re-Enter password" >
+                </div>
+                <div class="form-group">
+                    <label for="collegeName" style="color: white">College Name:</label>
+                    <input type="text" class="form-control" id="collegeName" placeholder="College Name">
+                </div>
+                <div class="form-group">
+                    <label for="collegeId" style="color: white">College Id:</label>
+                    <input type="text" class="form-control" id="CollegeId" placeholder="Roll Number" >
+                </div>
+                
+                <button class="g-signin2" id="sign-in" data-onsuccess="onSignIn" style="float: center;"></div>
+
+                <!-- <div class="checkbox">
+                    <label><input type="checkbox" name="Agree"> Are above details Correct</label>
+                </div> -->
+                <button type="button" id="btn1" class="btn btn-default"
+                    style="background-color: rgb(255, 174, 0); padding: 20px;float: right;">  Submit </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
