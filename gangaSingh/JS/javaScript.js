@@ -6,6 +6,7 @@ var count=0
 $(document).ready(function(){
     $("#1").click(function(){
       $("#1").css("color", "white").fadeOut(250).fadeIn(10);
+      debugger;
     });
     $("#2").click(function(){
       $("#2").css("color", "white").fadeOut(250).fadeIn(10);
