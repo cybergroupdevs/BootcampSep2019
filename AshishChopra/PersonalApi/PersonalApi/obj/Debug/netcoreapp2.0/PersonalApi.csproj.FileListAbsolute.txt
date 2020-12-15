@@ -1,0 +1,11 @@
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\bin\Debug\netcoreapp2.0\PersonalApi.deps.json
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\bin\Debug\netcoreapp2.0\PersonalApi.runtimeconfig.json
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\bin\Debug\netcoreapp2.0\PersonalApi.runtimeconfig.dev.json
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\bin\Debug\netcoreapp2.0\PersonalApi.dll
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\bin\Debug\netcoreapp2.0\PersonalApi.pdb
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\obj\Debug\netcoreapp2.0\PersonalApi.csprojAssemblyReference.cache
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\obj\Debug\netcoreapp2.0\PersonalApi.csproj.CoreCompileInputs.cache
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\obj\Debug\netcoreapp2.0\PersonalApi.AssemblyInfoInputs.cache
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\obj\Debug\netcoreapp2.0\PersonalApi.AssemblyInfo.cs
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\obj\Debug\netcoreapp2.0\PersonalApi.dll
+C:\Users\ashish.chopra\source\repos\PersonalApi\PersonalApi\obj\Debug\netcoreapp2.0\PersonalApi.pdb
