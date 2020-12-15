@@ -1,0 +1,64 @@
+body{
+    background-image: url('Images/signup-background.jpg');
+    background-size: cover;
+}
+
+.text-header{
+    text-align: center;
+    font-size: 4em;
+    font-family:'Bitter';
+}
+
+.custom-card{
+    background-color: transparent;
+    width: 48%;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+input:not(.save-details){
+    border: 1px solid black;
+    border-radius: 18px;
+    padding: 10px 18px;
+    outline: none;
+    margin-bottom: 10px;
+    background-color: transparent;
+    color:white;
+}
+
+input:focus{
+    border: 2px solid #29E4D6;
+
+}
+
+::placeholder{
+    color: white;
+}
+
+.save-details{
+    padding: 6px 20px;
+    font-size: 20px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    outline: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.or-text{
+    font-family: 'Bitter';
+    font-size: 20px;
+    color: white;
+}
+
+
+.center-google-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
