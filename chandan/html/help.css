@@ -1,45 +1,60 @@
-td
-{
-    text-align:center;
-    border:1px solid black;
-    font-weight:bold;
-    background-color:yellow;
-    color:white;
+#gradient {
+    height: 641px;
+    background-color: red;
+    background-image: linear-gradient(#12c2e9, #c471ed, #f64f59);
+}
+
+.heading {
+    color: red;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 50px;
+    font-style: italic;
+    text-shadow: 2px 2px 8px #1aff1a;
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+    background-color: yellow;
+    color: white;
     border-radius: 30px;
-    width:30;
-    height:30;
+    width: 30;
+    height: 30;
 }
-td:hover {
-    background-color:
-  }
-input{
+
+input {
     padding: 20px 28px;
-    border:1px solid black;
+    border: 1px solid black;
 }
-table{
+
+table {
     border: 3px solid black;
-    margin-top:170px;
-    border-radius:20px;
-   
+    margin-top: 80px;
+    border-radius: 20px;
 }
-.A
-{
+
+.grey {
     background-color: #D4D6D2
 }
-.B
-{
+
+.yellow {
     background-color: #E19A00
 }
-.C
-{
+
+.black {
     background-color: #3B3B3A
 }
-.A:hover{
+
+.grey:hover {
     background-color: #A9B1A0
 }
-.B:hover{
-    background-color:#FFAE00;
+
+.yellow:hover {
+    background-color: #FFAE00;
 }
-.C:hover{
+
+.black:hover {
     background-color: #070600;
 }
