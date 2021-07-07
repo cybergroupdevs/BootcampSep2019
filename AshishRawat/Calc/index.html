@@ -1,41 +1,82 @@
 <!DOCTYPE html>
-    <head>
-        <title>
-            Calculator
-        </title>
-        <link rel="stylesheet" href="CSS\Style.css" type="text/CSS">
-    </head>
-        <body style="background-color:rgb(156, 218, 218)">
-            
+
+<head>
+    <title>
+        Calculator
+    </title>
+    <link rel="stylesheet" href="CSS\Style.css" type="text/CSS">
+</head>
+
+<body style="background-color:rgb(156, 218, 218)">
+    <script>
+        var st = "";
+        function calc(num) {
+            form.value = st;
+            st = st + num;
+            form.displayResult.value = st;
+            console.log(st);
+            //form.displayResult.st;
+            //form.displayResult.value = form.displayResult.value + num;
+        }
+        function total() {
+            var res = "";
+            res = eval(st);
+            console.log(res);
+            form.displayResult.value = res;
+        }
+        function clear() {
+            var clean = "0";
+            console.log(clean);
+
+            form.displayResult.value = clean;
+        }
+    </script>
+    <form name="form">
+        <div>
             <table border="5px" style="width:300px;" class="table">
-                <tr class="display">
-                    <td colspan="5" class="result" style= "height: 150px" ><sub>CASIO</sub></td>
+                <tr>
+                    <td colspan="5" style="width:100px;">
+                        <div class="display">
+                            <input type="text" placeholder="0" name="displayResult"
+                                style="width: 100%; height: 50px; font-size: 20px;">
+                        </div>
+                    </td>
                 </tr>
                 <tr class="pop">
-                        <td class="digits">1</td>
-                        <td class="digits">2</td>
-                        <td class="digits">3</td>
-                        <td class="digits">4</td>
-                        <td class="operator">+</td>
+                    <td class="digits" name="b1" value="1" onclick="calc(this.innerText)">1</td>
+                    <td class="digits" name="b2" value="2" onclick="calc(this.innerText)">2</td>
+                    <td class="digits" name="b3" value="3" onclick="calc(this.innerText)">3</td>
+                    <td class="digits" name="b4" value="4" onclick="calc(this.innerText)">4</td>
+                    <td class="operator" name="add" value="+" onclick="calc(this.innerText)">+</td>
+
                 </tr>
-                <tr class="pop">
-                        <td class="digits">5</td>
-                        <td class="digits">6</td>
-                        <td class="digits">7</td>
-                        <td class="digits">8</td>
-                        <td class="operator">-</td>
+                <tr class=" pop">
+                    <td class="digits" name="b5" value="5" onclick="calc(this.innerText)">5</td>
+                    <td class="digits" name="b6" value="6" onclick="calc(this.innerText)">6</td>
+                    <td class="digits" name="b7" value="7" onclick="calc(this.innerText)">7</td>
+                    <td class="digits" name="b8" value="8" onclick="calc(this.innerText)">8</td>
+                    <td class="operator" name="sub" value="-" onclick="calc(this.innerText)">-</td>
                 </tr>
                 <tr>
-                        <td class="digits">9</td>
-                        <td class="digits">0</td>
-                        <td class="operator">*</td>
-                        <td class="operator">%</td>
-                        <td class="operator">ANS</td>
+
+                    <td class="digits" name="b9" value="9" onclick="calc(this.innerText)">9</td>
+                    <td class="digits" name="b0" value="0" onclick="calc(this.innerText)">0</td>
+                    <td class="operator" name="mup" value="*" onclick="calc(this.innerText)">*</td>
+                    <td class="operator" name="div" value="/" onclick="calc(this.innerText)">/</td>
+
+                    <td class="operator" name="clean" value="" onclick="location.reload()">C</td>
+                <tr>
+                    <td class="digits" colspan="5" name="ANSWER" value="=" onclick="total()">ANSWER</td>
                 </tr>
-                    
+
+                </tr>
+
             </table>
+    </form>
+    </div>
     <footer class="base">
         <sub> © COPYRIGHT BY ASHISH RAWAT</sub>
-    </footer>   
+    </footer>
 </body>
+
 </html>
