@@ -1,0 +1,11 @@
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\bin\Debug\netcoreapp2.0\Cyecom.deps.json
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\bin\Debug\netcoreapp2.0\Cyecom.runtimeconfig.json
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\bin\Debug\netcoreapp2.0\Cyecom.runtimeconfig.dev.json
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\bin\Debug\netcoreapp2.0\Cyecom.dll
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\bin\Debug\netcoreapp2.0\Cyecom.pdb
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\obj\Debug\netcoreapp2.0\Cyecom.csproj.CoreCompileInputs.cache
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\obj\Debug\netcoreapp2.0\Cyecom.AssemblyInfoInputs.cache
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\obj\Debug\netcoreapp2.0\Cyecom.AssemblyInfo.cs
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\obj\Debug\netcoreapp2.0\Cyecom.dll
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\obj\Debug\netcoreapp2.0\Cyecom.pdb
+C:\Users\ashish.rawat\source\repos\Cyecom\Cyecom\obj\Debug\netcoreapp2.0\Cyecom.csprojAssemblyReference.cache
